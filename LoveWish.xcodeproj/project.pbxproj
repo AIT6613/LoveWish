@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D22330539700D7AD7E /* WishItemTableViewController.m */; };
+		D11B71D92330540500D7AD7E /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D72330540500D7AD7E /* WishListCell.m */; };
+		D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11B71D82330540500D7AD7E /* WishListCell.xib */; };
+		D1208E832330698D007154D5 /* WishItemRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1208E822330698D007154D5 /* WishItemRequestViewController.m */; };
 		D1239F7E2326648A00601565 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F7D2326648A00601565 /* AppDelegate.m */; };
 		D1239F812326648A00601565 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F802326648A00601565 /* ViewController.m */; };
 		D1239F842326648A00601565 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1239F822326648A00601565 /* Main.storyboard */; };
@@ -35,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D11B71D12330539700D7AD7E /* WishItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishItemTableViewController.h; sourceTree = "<group>"; };
+		D11B71D22330539700D7AD7E /* WishItemTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishItemTableViewController.m; sourceTree = "<group>"; };
+		D11B71D62330540500D7AD7E /* WishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishListCell.h; sourceTree = "<group>"; };
+		D11B71D72330540500D7AD7E /* WishListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishListCell.m; sourceTree = "<group>"; };
+		D11B71D82330540500D7AD7E /* WishListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListCell.xib; sourceTree = "<group>"; };
+		D1208E812330698D007154D5 /* WishItemRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishItemRequestViewController.h; sourceTree = "<group>"; };
+		D1208E822330698D007154D5 /* WishItemRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishItemRequestViewController.m; sourceTree = "<group>"; };
 		D1239F792326648A00601565 /* LoveWish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveWish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1239F7C2326648A00601565 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D1239F7D2326648A00601565 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +89,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1208E8423306F3B007154D5 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1239F7F2326648A00601565 /* ViewController.h */,
+				D1239F802326648A00601565 /* ViewController.m */,
+				D11B71D12330539700D7AD7E /* WishItemTableViewController.h */,
+				D11B71D22330539700D7AD7E /* WishItemTableViewController.m */,
+				D1208E812330698D007154D5 /* WishItemRequestViewController.h */,
+				D1208E822330698D007154D5 /* WishItemRequestViewController.m */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		D1208E8523306F46007154D5 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D11B71D62330540500D7AD7E /* WishListCell.h */,
+				D11B71D72330540500D7AD7E /* WishListCell.m */,
+				D11B71D82330540500D7AD7E /* WishListCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		D1239F702326648900601565 = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +135,10 @@
 		D1239F7B2326648A00601565 /* LoveWish */ = {
 			isa = PBXGroup;
 			children = (
+				D1208E8523306F46007154D5 /* cells */,
+				D1208E8423306F3B007154D5 /* controllers */,
 				D1239F7C2326648A00601565 /* AppDelegate.h */,
 				D1239F7D2326648A00601565 /* AppDelegate.m */,
-				D1239F7F2326648A00601565 /* ViewController.h */,
-				D1239F802326648A00601565 /* ViewController.m */,
 				D1239F822326648A00601565 /* Main.storyboard */,
 				D1239F852326648B00601565 /* Assets.xcassets */,
 				D1239F872326648B00601565 /* LaunchScreen.storyboard */,
@@ -235,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */,
 				D1239F892326648B00601565 /* LaunchScreen.storyboard in Resources */,
 				D1239F862326648B00601565 /* Assets.xcassets in Resources */,
 				D1239F842326648A00601565 /* Main.storyboard in Resources */,
@@ -264,6 +299,9 @@
 			files = (
 				D1239F812326648A00601565 /* ViewController.m in Sources */,
 				D1239F8C2326648B00601565 /* main.m in Sources */,
+				D1208E832330698D007154D5 /* WishItemRequestViewController.m in Sources */,
+				D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */,
+				D11B71D92330540500D7AD7E /* WishListCell.m in Sources */,
 				D1239F7E2326648A00601565 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
