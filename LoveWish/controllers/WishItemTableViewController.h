@@ -10,12 +10,19 @@
 #import "WishListCell.h"
 #import "WishItemRequestViewController.h"
 
+#import "Device.h"
+@import Firebase;
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WishItemTableViewController : UITableViewController
 
 @property NSMutableArray *data;
 @property NSMutableArray *wishItems;
+
+@property(nonatomic) FIRFirestore *ref;
+
 
 @end
 
