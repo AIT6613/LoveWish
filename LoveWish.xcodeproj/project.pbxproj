@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA552AA95D967011EAD7BF79 /* Pods_LoveWishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */; };
+		CB0849B1B88DCBE134CB16EB /* Pods_LoveWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */; };
 		D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D22330539700D7AD7E /* WishItemTableViewController.m */; };
 		D11B71D92330540500D7AD7E /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D72330540500D7AD7E /* WishListCell.m */; };
 		D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11B71D82330540500D7AD7E /* WishListCell.xib */; };
@@ -19,6 +21,8 @@
 		D1239F8C2326648B00601565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F8B2326648B00601565 /* main.m */; };
 		D1239F962326648C00601565 /* LoveWishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F952326648C00601565 /* LoveWishTests.m */; };
 		D1239FA12326648C00601565 /* LoveWishUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239FA02326648C00601565 /* LoveWishUITests.m */; };
+		D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */; };
+		E23EBD25D2FB50E5825F18B5 /* Pods_LoveWish_LoveWishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B72AD6D44DA5FCAEDF9D207 /* Pods_LoveWish_LoveWishUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2281AAB16588D51929ADB12B /* Pods-LoveWish-LoveWishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish-LoveWishUITests.release.xcconfig"; path = "Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests.release.xcconfig"; sourceTree = "<group>"; };
+		500E9718ABB8BC976B15D0BA /* Pods-LoveWish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish.debug.xcconfig"; path = "Target Support Files/Pods-LoveWish/Pods-LoveWish.debug.xcconfig"; sourceTree = "<group>"; };
+		5B72AD6D44DA5FCAEDF9D207 /* Pods_LoveWish_LoveWishUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoveWish_LoveWishUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoveWish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C4C70BE1AD8F6AA0D7D5BF4 /* Pods-LoveWishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWishTests.release.xcconfig"; path = "Target Support Files/Pods-LoveWishTests/Pods-LoveWishTests.release.xcconfig"; sourceTree = "<group>"; };
+		9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoveWishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWishTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWishTests/Pods-LoveWishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish-LoveWishUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CBBEC8DCE99B17F046D5741D /* Pods-LoveWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish.release.xcconfig"; path = "Target Support Files/Pods-LoveWish/Pods-LoveWish.release.xcconfig"; sourceTree = "<group>"; };
 		D11B71D12330539700D7AD7E /* WishItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishItemTableViewController.h; sourceTree = "<group>"; };
 		D11B71D22330539700D7AD7E /* WishItemTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WishItemTableViewController.m; sourceTree = "<group>"; };
 		D11B71D62330540500D7AD7E /* WishListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishListCell.h; sourceTree = "<group>"; };
@@ -62,6 +75,7 @@
 		D1239F9C2326648C00601565 /* LoveWishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveWishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1239FA02326648C00601565 /* LoveWishUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveWishUITests.m; sourceTree = "<group>"; };
 		D1239FA22326648C00601565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB0849B1B88DCBE134CB16EB /* Pods_LoveWish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA552AA95D967011EAD7BF79 /* Pods_LoveWishTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,12 +99,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23EBD25D2FB50E5825F18B5 /* Pods_LoveWish_LoveWishUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47D3554BE44A637BD284308F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				500E9718ABB8BC976B15D0BA /* Pods-LoveWish.debug.xcconfig */,
+				CBBEC8DCE99B17F046D5741D /* Pods-LoveWish.release.xcconfig */,
+				B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */,
+				2281AAB16588D51929ADB12B /* Pods-LoveWish-LoveWishUITests.release.xcconfig */,
+				9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */,
+				6C4C70BE1AD8F6AA0D7D5BF4 /* Pods-LoveWishTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		530A6584490B65B396B93C6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */,
+				5B72AD6D44DA5FCAEDF9D207 /* Pods_LoveWish_LoveWishUITests.framework */,
+				9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D1208E8423306F3B007154D5 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +159,8 @@
 				D1239F942326648C00601565 /* LoveWishTests */,
 				D1239F9F2326648C00601565 /* LoveWishUITests */,
 				D1239F7A2326648A00601565 /* Products */,
+				47D3554BE44A637BD284308F /* Pods */,
+				530A6584490B65B396B93C6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +177,7 @@
 		D1239F7B2326648A00601565 /* LoveWish */ = {
 			isa = PBXGroup;
 			children = (
+				D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */,
 				D1208E8523306F46007154D5 /* cells */,
 				D1208E8423306F3B007154D5 /* controllers */,
 				D1239F7C2326648A00601565 /* AppDelegate.h */,
@@ -173,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1239FA52326648C00601565 /* Build configuration list for PBXNativeTarget "LoveWish" */;
 			buildPhases = (
+				7C072BB2E8694B2A52D6A02C /* [CP] Check Pods Manifest.lock */,
 				D1239F752326648A00601565 /* Sources */,
 				D1239F762326648A00601565 /* Frameworks */,
 				D1239F772326648A00601565 /* Resources */,
+				03F5C95DFDBDB67E410D48D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1239FA82326648C00601565 /* Build configuration list for PBXNativeTarget "LoveWishTests" */;
 			buildPhases = (
+				2718ABC12BCB9972B7F72703 /* [CP] Check Pods Manifest.lock */,
 				D1239F8D2326648C00601565 /* Sources */,
 				D1239F8E2326648C00601565 /* Frameworks */,
 				D1239F8F2326648C00601565 /* Resources */,
@@ -208,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1239FAB2326648C00601565 /* Build configuration list for PBXNativeTarget "LoveWishUITests" */;
 			buildPhases = (
+				F2633ECAE1CFB784A250D6E0 /* [CP] Check Pods Manifest.lock */,
 				D1239F982326648C00601565 /* Sources */,
 				D1239F992326648C00601565 /* Frameworks */,
 				D1239F9A2326648C00601565 /* Resources */,
+				BF1661B2308855F385364974 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +319,7 @@
 			files = (
 				D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */,
 				D1239F892326648B00601565 /* LaunchScreen.storyboard in Resources */,
+				D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */,
 				D1239F862326648B00601565 /* Assets.xcassets in Resources */,
 				D1239F842326648A00601565 /* Main.storyboard in Resources */,
 			);
@@ -291,6 +340,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03F5C95DFDBDB67E410D48D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoveWish/Pods-LoveWish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoveWish/Pods-LoveWish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoveWish/Pods-LoveWish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2718ABC12BCB9972B7F72703 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoveWishTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C072BB2E8694B2A52D6A02C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoveWish-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF1661B2308855F385364974 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2633ECAE1CFB784A250D6E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoveWish-LoveWishUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1239F752326648A00601565 /* Sources */ = {
@@ -471,6 +623,7 @@
 		};
 		D1239FA62326648C00601565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 500E9718ABB8BC976B15D0BA /* Pods-LoveWish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -488,6 +641,7 @@
 		};
 		D1239FA72326648C00601565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBBEC8DCE99B17F046D5741D /* Pods-LoveWish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -505,6 +659,7 @@
 		};
 		D1239FA92326648C00601565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -524,6 +679,7 @@
 		};
 		D1239FAA2326648C00601565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4C70BE1AD8F6AA0D7D5BF4 /* Pods-LoveWishTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -543,6 +699,7 @@
 		};
 		D1239FAC2326648C00601565 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2JM7XLS3M;
@@ -561,6 +718,7 @@
 		};
 		D1239FAD2326648C00601565 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2281AAB16588D51929ADB12B /* Pods-LoveWish-LoveWishUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2JM7XLS3M;

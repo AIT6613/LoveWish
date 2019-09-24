@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>847377863218-mgje5id1aoc0recncvifja244me1j40d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.847377863218-mgje5id1aoc0recncvifja244me1j40d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBxP_iES-qNvX_8SSOy6B7mnxNNCL3dN94</string>
+	<key>GCM_SENDER_ID</key>
+	<string>847377863218</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ait.6613.LoveWish</string>
+	<key>PROJECT_ID</key>
+	<string>dblovewish</string>
+	<key>STORAGE_BUCKET</key>
+	<string>dblovewish.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:847377863218:ios:1e6380364db2d28fb3e22b</string>
+	<key>DATABASE_URL</key>
+	<string>https://dblovewish.firebaseio.com</string>
+</dict>
+</plist>
