@@ -6,7 +6,6 @@ target 'LoveWish' do
   use_frameworks!
 
   # Pods for LoveWish
-  pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSLog(@"Step Didload");
+
 }
 
 /*
@@ -34,7 +37,7 @@
 
 - (IBAction)btnSave:(id)sender {
     // check information validation
-    
+    NSLog(@"Step 1");
     // sign up
     [[FIRAuth auth] createUserWithEmail:[txtEmailAddress text] password:[txtPassword text] completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         
@@ -43,6 +46,7 @@
                 // show alert
                 // TODO: show alert
                 NSLog(@"%@",[error localizedDescription]);
+                NSLog(@"Sign up ERROR!!!!!!!");
                 
                 return;
             }

@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="-1300" y="-102.09895052473765"/>
         </scene>
-        <!--Sign UpVC-->
+        <!--Sign Up Controller View Controller-->
         <scene sceneID="JlZ-NV-WlX">
             <objects>
-                <viewController id="f7q-wc-BUL" customClass="SignUpVC" sceneMemberID="viewController">
+                <viewController id="f7q-wc-BUL" customClass="SignUpControllerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="An7-Yc-jIV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,6 +214,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSave:" destination="f7q-wc-BUL" eventType="touchUpInside" id="ghv-di-EMs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c4-p1-FRQ">
                                 <rect key="frame" x="194" y="505" width="170" height="40"/>
