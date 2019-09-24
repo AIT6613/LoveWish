@@ -273,6 +273,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q2R-4j-bd4"/>
                     </view>
+                    <connections>
+                        <outlet property="txtAddress" destination="nYC-QJ-smm" id="ayA-m7-TLj"/>
+                        <outlet property="txtContactNumber" destination="rcw-EZ-OSD" id="1SY-1G-NfU"/>
+                        <outlet property="txtEmailAddress" destination="m8Q-Rl-6f9" id="Fk4-XW-w8G"/>
+                        <outlet property="txtFirstName" destination="QOb-qY-CtE" id="v4p-q2-Ke5"/>
+                        <outlet property="txtLastName" destination="vIm-Ca-rMS" id="qs9-og-waa"/>
+                        <outlet property="txtPassword" destination="XAd-4O-z0W" id="aaE-Tf-fqN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBO-77-C5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,9 +382,6 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnSave:" destination="p81-nI-N6s" eventType="touchUpInside" id="6gW-nC-1oh"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -420,14 +425,6 @@
                         <viewLayoutGuide key="safeArea" id="g7T-dm-jmc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Profile" image="myProfile.png" landscapeImage="myProfile.png" id="4ks-AV-zjh"/>
-                    <connections>
-                        <outlet property="txtAddress" destination="GQa-em-wMd" id="NeR-So-vSP"/>
-                        <outlet property="txtContactNumber" destination="r0y-bJ-PBK" id="IdZ-GR-LwY"/>
-                        <outlet property="txtEmailAddress" destination="lhJ-un-Sp0" id="GYm-3a-TVC"/>
-                        <outlet property="txtFirstName" destination="Y2u-r2-QnS" id="kPp-ki-FbU"/>
-                        <outlet property="txtLastName" destination="DEb-v8-2fM" id="x8h-4G-qGR"/>
-                        <outlet property="txtPassword" destination="69S-be-xik" id="soI-ys-LIr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILZ-nK-3PY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,10 +9,6 @@
 #import "SignUpControllerViewController.h"
 
 
-@interface SignUpControllerViewController ()
-
-@end
-
 @implementation SignUpControllerViewController
 
 @synthesize db, txtAddress, txtLastName, txtPassword, txtFirstName, txtEmailAddress, txtContactNumber;
@@ -20,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSLog(@"Step Didload");
+    db = [FIRFirestore firestore];
+
 
 }
 
@@ -38,6 +34,7 @@
 - (IBAction)btnSave:(id)sender {
     // check information validation
     NSLog(@"Step 1");
+    NSLog(@"email: %@   pass: %@",[self->txtEmailAddress text],[self->txtPassword text]);
     // sign up
     [[FIRAuth auth] createUserWithEmail:[txtEmailAddress text] password:[txtPassword text] completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         
@@ -45,6 +42,7 @@
             if (error) {
                 // show alert
                 // TODO: show alert
+                
                 NSLog(@"%@",[error localizedDescription]);
                 NSLog(@"Sign up ERROR!!!!!!!");
                 
@@ -68,6 +66,8 @@
                                     NSLog(@"Sign up successful.");
                                 }
                             }];
+            } else {
+                NSLog(@"user: %@", [[authResult user] uid]);
             }
         }];
 

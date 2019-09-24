@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SignUpControllerViewController : UIViewController
 
-@property FIRDocumentReference *db;
+@property FIRFirestore *db;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmailAddress;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
