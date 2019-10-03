@@ -23,6 +23,13 @@
 		D1239F8C2326648B00601565 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F8B2326648B00601565 /* main.m */; };
 		D1239F962326648C00601565 /* LoveWishTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239F952326648C00601565 /* LoveWishTests.m */; };
 		D1239FA12326648C00601565 /* LoveWishUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1239FA02326648C00601565 /* LoveWishUITests.m */; };
+		D1418A7A23458860009CF135 /* OfferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A7823458860009CF135 /* OfferCell.m */; };
+		D1418A7B23458860009CF135 /* OfferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1418A7923458860009CF135 /* OfferCell.xib */; };
+		D1418A7E23458F94009CF135 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A7D23458F94009CF135 /* OfferViewController.m */; };
+		D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A80234596D7009CF135 /* ImageViewCell.m */; };
+		D1418A83234596D7009CF135 /* ImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1418A81234596D7009CF135 /* ImageViewCell.xib */; };
+		D1418A87234598F5009CF135 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A85234598F5009CF135 /* ImageCell.m */; };
+		D1418A88234598F5009CF135 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1418A86234598F5009CF135 /* ImageCell.xib */; };
 		D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */; };
 		E23EBD25D2FB50E5825F18B5 /* Pods_LoveWish_LoveWishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B72AD6D44DA5FCAEDF9D207 /* Pods_LoveWish_LoveWishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +88,17 @@
 		D1239F9C2326648C00601565 /* LoveWishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveWishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1239FA02326648C00601565 /* LoveWishUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoveWishUITests.m; sourceTree = "<group>"; };
 		D1239FA22326648C00601565 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1418A7723458860009CF135 /* OfferCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferCell.h; sourceTree = "<group>"; };
+		D1418A7823458860009CF135 /* OfferCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferCell.m; sourceTree = "<group>"; };
+		D1418A7923458860009CF135 /* OfferCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferCell.xib; sourceTree = "<group>"; };
+		D1418A7C23458F94009CF135 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
+		D1418A7D23458F94009CF135 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
+		D1418A7F234596D7009CF135 /* ImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
+		D1418A80234596D7009CF135 /* ImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
+		D1418A81234596D7009CF135 /* ImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewCell.xib; sourceTree = "<group>"; };
+		D1418A84234598F5009CF135 /* ImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		D1418A85234598F5009CF135 /* ImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		D1418A86234598F5009CF135 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +164,8 @@
 				D1208E822330698D007154D5 /* WishItemRequestViewController.m */,
 				9A5670242339A45A00965923 /* SignUpControllerViewController.h */,
 				9A5670252339A45A00965923 /* SignUpControllerViewController.m */,
+				D1418A7C23458F94009CF135 /* OfferViewController.h */,
+				D1418A7D23458F94009CF135 /* OfferViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -156,6 +176,15 @@
 				D11B71D62330540500D7AD7E /* WishListCell.h */,
 				D11B71D72330540500D7AD7E /* WishListCell.m */,
 				D11B71D82330540500D7AD7E /* WishListCell.xib */,
+				D1418A7723458860009CF135 /* OfferCell.h */,
+				D1418A7823458860009CF135 /* OfferCell.m */,
+				D1418A7923458860009CF135 /* OfferCell.xib */,
+				D1418A7F234596D7009CF135 /* ImageViewCell.h */,
+				D1418A80234596D7009CF135 /* ImageViewCell.m */,
+				D1418A81234596D7009CF135 /* ImageViewCell.xib */,
+				D1418A84234598F5009CF135 /* ImageCell.h */,
+				D1418A85234598F5009CF135 /* ImageCell.m */,
+				D1418A86234598F5009CF135 /* ImageCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -328,9 +357,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */,
+				D1418A88234598F5009CF135 /* ImageCell.xib in Resources */,
 				D1239F892326648B00601565 /* LaunchScreen.storyboard in Resources */,
+				D1418A7B23458860009CF135 /* OfferCell.xib in Resources */,
 				D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */,
 				D1239F862326648B00601565 /* Assets.xcassets in Resources */,
+				D1418A83234596D7009CF135 /* ImageViewCell.xib in Resources */,
 				D1239F842326648A00601565 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,9 +492,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5670262339A45A00965923 /* SignUpControllerViewController.m in Sources */,
+				D1418A87234598F5009CF135 /* ImageCell.m in Sources */,
 				D1239F812326648A00601565 /* ViewController.m in Sources */,
 				D1239F8C2326648B00601565 /* main.m in Sources */,
+				D1418A7A23458860009CF135 /* OfferCell.m in Sources */,
+				D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */,
 				D1208E832330698D007154D5 /* WishItemRequestViewController.m in Sources */,
+				D1418A7E23458F94009CF135 /* OfferViewController.m in Sources */,
 				D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */,
 				D11B71D92330540500D7AD7E /* WishListCell.m in Sources */,
 				9A5670232339999300965923 /* Device.m in Sources */,

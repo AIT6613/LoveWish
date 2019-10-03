@@ -534,7 +534,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MKi-Zg-H4y" kind="show" id="D9F-bU-AZX"/>
+                                    <segue destination="MKi-Zg-H4y" kind="show" identifier="toOfferDetail" id="D9F-bU-AZX"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MB0-CJ-3OF">
@@ -543,16 +543,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="205" id="SP9-sn-dfQ"/>
                                 </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LLu-H8-eyO">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LLu-H8-eyO" id="hNw-ne-iID">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -582,7 +572,9 @@
                         <viewLayoutGuide key="safeArea" id="5JR-Lq-NRT"/>
                     </view>
                     <connections>
+                        <outlet property="imageTableView" destination="HmH-xz-LyI" id="DSr-k1-zMM"/>
                         <outlet property="lblItemName" destination="7F2-Gn-K5j" id="eFy-h3-Hcp"/>
+                        <outlet property="offerTableView" destination="MB0-CJ-3OF" id="grI-iU-SxF"/>
                         <outlet property="txtViewDetail" destination="3Wj-yM-XKW" id="G9q-3a-z9z"/>
                     </connections>
                 </viewController>
@@ -590,10 +582,10 @@
             </objects>
             <point key="canvasLocation" x="3005.5999999999999" y="-364.7676161919041"/>
         </scene>
-        <!--View Controller-->
+        <!--Offer View Controller-->
         <scene sceneID="lxF-KQ-xCV">
             <objects>
-                <viewController id="MKi-Zg-H4y" sceneMemberID="viewController">
+                <viewController id="MKi-Zg-H4y" customClass="OfferViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ynf-zB-qiF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,6 +637,9 @@
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 </variation>
+                                <connections>
+                                    <action selector="btnSave:" destination="MKi-Zg-H4y" eventType="touchUpInside" id="BUj-BN-sWY"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w82-22-pik">
                                 <rect key="frame" x="16" y="197" width="343" height="100"/>
@@ -695,6 +690,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pio-rh-Q4q"/>
                     </view>
+                    <connections>
+                        <outlet property="imageTableView" destination="Xht-rO-S1C" id="mNa-ic-1y0"/>
+                        <outlet property="lblItemName" destination="kZp-ys-k1T" id="Wj2-lF-2ZQ"/>
+                        <outlet property="lblTitle" destination="oUe-Hn-Aj4" id="Yek-Nf-Hkf"/>
+                        <outlet property="textViewDescription" destination="w82-22-pik" id="1Y6-0E-Uex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a2B-8P-1Qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

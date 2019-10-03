@@ -1,40 +1,38 @@
 //
-//  WishItemRequestViewController.m
+//  OfferViewController.m
 //  LoveWish
 //
-//  Created by Anirut Puangkingkaew on 17/9/19.
+//  Created by Anirut Puangkingkaew on 3/10/19.
 //  Copyright © 2019 AIT. All rights reserved.
 //
 
-#import "WishItemRequestViewController.h"
 #import "OfferViewController.h"
 
-@interface WishItemRequestViewController ()
-
+@interface OfferViewController ()
 
 @end
 
-@implementation WishItemRequestViewController
+@implementation OfferViewController
 
-@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView;
+@synthesize lblTitle,lblItemName,textViewDescription, imageTableView, data, offerItem;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     // Need to do this because we use tableView in side viewController
-    [offerTableView setDelegate:self];
-    [offerTableView setDataSource:self];
+    [imageTableView setDelegate:self];
+    [imageTableView setDataSource:self];
     
     [lblItemName setText:[data objectAtIndex:0]];
-    [txtViewDetail setText:[data objectAtIndex:1]];
-
+    [textViewDescription setText:[data objectAtIndex:1]];
+    
     
     // SHOW OFFER DATA IN TABLE VIEW
     //data = [[NSMutableArray alloc] initWithObjects:@"{'MyItem1','xxx','eee'}",@"MyItem2",@"MyItem3",@"MyItem4",@"MyItem5",@"MyItem6",@"MyItem7",@"MyItem8",@"MyItem9 MyItem10",@"MyItem11",@"MyItem12",@"MyItem13",nil];
     data = [[NSMutableArray alloc] init];
-    [data addObject:@[@"Offer1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
-    [data addObject:@[@"Offer2",@"356357658476857867",@"offerImage2"]];
+    [data addObject:@[@"imageName1",@"offerImage1"]];
+    [data addObject:@[@"imageName2",@"offerImage2"]];
     
     
     // Pulling the data from Core Data
@@ -78,9 +76,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Register custom design
-    [self.offerTableView registerNib:[UINib nibWithNibName:@"WishListCell"
-                                               bundle:nil]
-         forCellReuseIdentifier:@"wishItemCell"];
+    [self.imageTableView registerNib:[UINib nibWithNibName:@"WishListCell"
+                                                    bundle:nil]
+              forCellReuseIdentifier:@"wishItemCell"];
     
     WishListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"wishItemCell" forIndexPath:indexPath];
     
@@ -96,25 +94,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    offerItem = [data objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"toOfferDetail" sender:nil];
+
+- (IBAction)btnSave:(id)sender {
+    
 }
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //find segue
-    if ([[segue identifier] isEqualToString: @"toOfferDetail"])
-    {
-        //get reference to the destination view controller
-        OfferViewController *vc = [segue destinationViewController];
-        
-        //pass data to wish item request screen
-        vc.data = offerItem;
-        
-    }
-}
-
-
-
 @end

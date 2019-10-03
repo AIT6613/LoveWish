@@ -7,16 +7,20 @@
 //
 
 #import "ViewController.h"
+#import "WishListCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WishItemRequestViewController : ViewController
+@interface WishItemRequestViewController : ViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property NSMutableArray *data;
+@property NSMutableArray *offerItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;
 
 @property (weak, nonatomic) IBOutlet UITextView *txtViewDetail;
+@property (weak, nonatomic) IBOutlet UITableView *offerTableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *imageTableView;
 
 
 @end
