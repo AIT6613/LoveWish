@@ -14,7 +14,7 @@
 
 @implementation WishItemTableViewController
 
-@synthesize data, wishItems;
+@synthesize data, wishItems, uid, email;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

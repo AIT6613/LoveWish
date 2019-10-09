@@ -14,11 +14,12 @@
 
 @implementation OfferViewController
 
-@synthesize lblTitle,lblItemName,textViewDescription, imageTableView, data, offerItem;
+@synthesize lblTitle,lblItemName,textViewDescription, imageTableView, data, offerItem, isNew;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%d",self.isNew);
     
     // Need to do this because we use tableView in side viewController
     [imageTableView setDelegate:self];
@@ -33,6 +34,8 @@
     data = [[NSMutableArray alloc] init];
     [data addObject:@[@"imageName1",@"offerImage1"]];
     [data addObject:@[@"imageName2",@"offerImage2"]];
+    
+
     
     
     // Pulling the data from Core Data

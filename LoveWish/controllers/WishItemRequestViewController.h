@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSMutableArray *data;
 @property NSMutableArray *offerItem;
+@property NSNumber *isNew;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;
 
@@ -22,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *offerTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imageTableView;
 
+
+- (IBAction)lblCreateNewOffer:(id)sender;
 
 @end
 

@@ -16,7 +16,7 @@
 
 @implementation WishItemRequestViewController
 
-@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView;
+@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView, isNew;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,10 +111,17 @@
         
         //pass data to wish item request screen
         vc.data = offerItem;
+        vc.isNew = 0;
         
     }
 }
 
 
 
+- (IBAction)lblCreateNewOffer:(id)sender {
+
+}
 @end
+
+
+

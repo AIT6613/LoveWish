@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *data;
 @property NSMutableArray *wishItems;
 
+@property NSString *uid;
+@property NSString *email;
+
 @property(nonatomic) FIRFirestore *ref;
 
 

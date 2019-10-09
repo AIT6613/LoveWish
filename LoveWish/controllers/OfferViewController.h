@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *data;
 @property NSMutableArray *offerItem;
 
+@property int isNew;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemName;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
