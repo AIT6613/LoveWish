@@ -47,8 +47,11 @@
         return;
     }
     
+    // go back to root in tabbar controller
+    [[self tabBarController] setSelectedIndex:0];
+    
     //redirect to login screen
-    [self displayLoginScreen];
+    //[self displayLoginScreen];
     
 }
 

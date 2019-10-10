@@ -2,29 +2,26 @@
 //  WishItemRequestViewController.h
 //  LoveWish
 //
-//  Created by Anirut Puangkingkaew on 17/9/19.
+//  Created by 6613 on 10/10/19.
 //  Copyright © 2019 AIT. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "WishListCell.h"
+#import <UIKit/UIKit.h>
+#import "ImageViewCell.h"
+@import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WishItemRequestViewController : ViewController <UITableViewDelegate, UITableViewDataSource>
+@interface WishItemRequestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property NSMutableArray *data;
-@property NSMutableArray *offerItem;
-@property NSNumber *isNew;
+@property NSMutableArray *imgData;
+@property NSMutableArray *imgDataItem;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblItemName;
-
-@property (weak, nonatomic) IBOutlet UITextView *txtViewDetail;
-@property (weak, nonatomic) IBOutlet UITableView *offerTableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *imageTableView;
+@property (weak, nonatomic) IBOutlet UITextField *txtTitle;
+@property (weak, nonatomic) IBOutlet UITextField *txtDetail;
+@property (weak, nonatomic) IBOutlet UITableView *imageTableView;
 
 
-- (IBAction)lblCreateNewOffer:(id)sender;
 
 @end
 
