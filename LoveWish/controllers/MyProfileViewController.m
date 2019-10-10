@@ -14,9 +14,36 @@
 
 @implementation MyProfileViewController
 
+@synthesize txtEmail, txtOldPassword, txtNewPassword, txtFirstName, txtLastName, txtContactNumber, txtAddress, db, firebaseUser;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    db = [FIRFirestore firestore];
+    // get user from firestore
+    firebaseUser = [[FIRAuth auth] currentUser];
+    
+    // get user detail from database
+    FIRDocumentReference *docRef =
+    [[self.db collectionWithPath:@"users"] documentWithPath:[firebaseUser uid]];
+    [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+        if (snapshot.exists) {
+            // Document data may be nil if the document exists but has no keys or values.
+            NSLog(@"User data: %@", snapshot.data);
+            
+             // show user detail to interface
+            [self.txtEmail setText:[self.firebaseUser email]];
+            [self.txtFirstName setText:snapshot.data[@"firstName"]];
+            [self.txtLastName setText:snapshot.data[@"lastName"]];
+            [self.txtContactNumber setText:snapshot.data[@"contactNumber"]];
+            [self.txtAddress setText:snapshot.data[@"address"]];
+            
+        } else {
+            NSLog(@"User does not exist");
+        }
+    }];
+    
+    
+
 }
 
 /*
@@ -28,6 +55,108 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)btnSave:(id)sender {
+    // check if new both password
+    if (![txtNewPassword.text isEqualToString:@""]){
+        // check if have old password
+        if ([txtOldPassword.text isEqualToString:@""]){
+            // ask user to input old password
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please provide old password." preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alert addAction:ok];
+            [self presentViewController:alert animated:YES completion:nil];
+            return;
+        }
+    
+        // reautheticate user
+        FIRAuthCredential *credentials = [FIREmailAuthProvider credentialWithEmail:[firebaseUser email] password:txtOldPassword.text];
+        
+        [firebaseUser reauthenticateWithCredential:credentials completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
+            if(error){
+                // ask user to input old password
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Updaet password error." preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                
+                [alert addAction:ok];
+                [self presentViewController:alert animated:YES completion:nil];
+                return;
+            }
+            
+            // update password
+            [self.firebaseUser updatePassword:self.txtNewPassword.text completion:^(NSError *_Nullable error) {
+                // check error
+                if(error){
+                    // ask user to input old password
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Updaet password error." preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    }];
+                    
+                    [alert addAction:ok];
+                    [self presentViewController:alert animated:YES completion:nil];
+                    return;
+                }
+                
+                // clear password
+                [self.txtOldPassword setText:@""];
+                [self.txtNewPassword setText:@""];
+            
+            }];
+            
+        }];
+    }
+    
+    // update user detail
+    [[[self.db collectionWithPath:@"users"] documentWithPath:[self.firebaseUser uid]]
+     updateData:@{
+               @"firstName":[[self txtFirstName] text],
+               @"lastName":[[self txtLastName] text],
+               @"contactNumber":[[self txtContactNumber] text],
+               @"address":[[self txtAddress] text]
+               } completion:^(NSError * _Nullable error) {
+                   if (error != nil) {
+                       NSLog(@"Error: %@", error);
+                       // check error
+                      
+                       // ask user to input old password
+                       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Updaet user detail error." preferredStyle:UIAlertControllerStyleAlert];
+                       
+                       UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                           
+                       }];
+                       
+                       [alert addAction:ok];
+                       [self presentViewController:alert animated:YES completion:nil];
+                       return;
+                       
+                   } else {
+                       NSLog(@"Updaet user successful.");
+                       
+                       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Updaet user successful." preferredStyle:UIAlertControllerStyleAlert];
+                       
+                       UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                           
+                       }];
+                       
+                       [alert addAction:ok];
+                       [self presentViewController:alert animated:YES completion:nil];
+                       return;
+                   }
+                   
+                   
+               }];
+}
+
+
 
 - (IBAction)btnLogout:(id)sender {
     //log out
