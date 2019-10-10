@@ -90,7 +90,7 @@
     if ([[segue identifier] isEqualToString: @"toWishItemDetail"])
     {
         //get reference to the destination view controller
-        WishItemRequestViewController *vc = [segue destinationViewController];
+        WishItemDetailViewController *vc = [segue destinationViewController];
         
         //pass data to wish item request screen
         vc.data = wishItems;

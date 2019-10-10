@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgBox;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
 
 
 @end

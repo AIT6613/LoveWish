@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WishListCell.h"
-#import "WishItemRequestViewController.h"
+#import "WishItemDetailViewController.h"
 #import "LoginViewController.h"
 
 #import "Device.h"
