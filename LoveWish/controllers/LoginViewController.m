@@ -82,16 +82,18 @@
                     
                     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         //button click event
+                        
+                        
+                        // dismiss login screen
+                        [self dismissViewControllerAnimated:(YES) completion:nil];
                     }];
                     
                     [alert addAction:ok];
                     [self presentViewController:alert animated:YES completion:nil];
                     
-                    // Open wish table table view controller
-                    NSString * storyboardName = @"Main";
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-                    WishItemTableViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"WishItemTableViewController"];
-                    [self presentViewController:vc animated:YES completion:nil];
+                    
+                    
+                    
                 }
 
             } else {

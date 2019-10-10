@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WishListCell.h"
 #import "WishItemRequestViewController.h"
+#import "LoginViewController.h"
 
 #import "Device.h"
 @import Firebase;

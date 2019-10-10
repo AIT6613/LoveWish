@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9A5670232339999300965923 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5670222339999300965923 /* Device.m */; };
 		9A5670262339A45A00965923 /* SignUpControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5670252339A45A00965923 /* SignUpControllerViewController.m */; };
+		9A803D7F234E92FB008A5C48 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A803D7E234E92FB008A5C48 /* Login.storyboard */; };
+		9A9EBE1A234EA4DA00971836 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9EBE19234EA4DA00971836 /* Launch Screen.storyboard */; };
+		9A9EBE1D234EA6B000971836 /* LuanchViewConViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */; };
+		9A9EBE20234EB0E300971836 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */; };
 		BA552AA95D967011EAD7BF79 /* Pods_LoveWishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */; };
 		CB0849B1B88DCBE134CB16EB /* Pods_LoveWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */; };
 		CDBBA774234AA7090086D8B8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBBA773234AA7090086D8B8 /* LoginViewController.m */; };
@@ -29,8 +33,6 @@
 		D1418A7E23458F94009CF135 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A7D23458F94009CF135 /* OfferViewController.m */; };
 		D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A80234596D7009CF135 /* ImageViewCell.m */; };
 		D1418A83234596D7009CF135 /* ImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1418A81234596D7009CF135 /* ImageViewCell.xib */; };
-		D1418A87234598F5009CF135 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D1418A85234598F5009CF135 /* ImageCell.m */; };
-		D1418A88234598F5009CF135 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1418A86234598F5009CF135 /* ImageCell.xib */; };
 		D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */; };
 		E23EBD25D2FB50E5825F18B5 /* Pods_LoveWish_LoveWishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B72AD6D44DA5FCAEDF9D207 /* Pods_LoveWish_LoveWishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,12 @@
 		9A5670222339999300965923 /* Device.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Device.m; sourceTree = "<group>"; };
 		9A5670242339A45A00965923 /* SignUpControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpControllerViewController.h; sourceTree = "<group>"; };
 		9A5670252339A45A00965923 /* SignUpControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpControllerViewController.m; sourceTree = "<group>"; };
+		9A803D7E234E92FB008A5C48 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		9A9EBE19234EA4DA00971836 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9A9EBE1B234EA6B000971836 /* LuanchViewConViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuanchViewConViewController.h; sourceTree = "<group>"; };
+		9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuanchViewConViewController.m; sourceTree = "<group>"; };
+		9A9EBE1E234EB0E300971836 /* MyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoveWishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWishTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWishTests/Pods-LoveWishTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish-LoveWishUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,9 +107,6 @@
 		D1418A7F234596D7009CF135 /* ImageViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
 		D1418A80234596D7009CF135 /* ImageViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
 		D1418A81234596D7009CF135 /* ImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewCell.xib; sourceTree = "<group>"; };
-		D1418A84234598F5009CF135 /* ImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
-		D1418A85234598F5009CF135 /* ImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
-		D1418A86234598F5009CF135 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +161,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A803D7D234E92A0008A5C48 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D1239F822326648A00601565 /* Main.storyboard */,
+				9A803D7E234E92FB008A5C48 /* Login.storyboard */,
+				9A9EBE19234EA4DA00971836 /* Launch Screen.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
 		D1208E8423306F3B007154D5 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +186,10 @@
 				D1418A7D23458F94009CF135 /* OfferViewController.m */,
 				CDBBA772234AA7090086D8B8 /* LoginViewController.h */,
 				CDBBA773234AA7090086D8B8 /* LoginViewController.m */,
+				9A9EBE1B234EA6B000971836 /* LuanchViewConViewController.h */,
+				9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */,
+				9A9EBE1E234EB0E300971836 /* MyProfileViewController.h */,
+				9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -187,9 +206,6 @@
 				D1418A7F234596D7009CF135 /* ImageViewCell.h */,
 				D1418A80234596D7009CF135 /* ImageViewCell.m */,
 				D1418A81234596D7009CF135 /* ImageViewCell.xib */,
-				D1418A84234598F5009CF135 /* ImageCell.h */,
-				D1418A85234598F5009CF135 /* ImageCell.m */,
-				D1418A86234598F5009CF135 /* ImageCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -219,12 +235,12 @@
 		D1239F7B2326648A00601565 /* LoveWish */ = {
 			isa = PBXGroup;
 			children = (
+				9A803D7D234E92A0008A5C48 /* storyboards */,
 				D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */,
 				D1208E8523306F46007154D5 /* cells */,
 				D1208E8423306F3B007154D5 /* controllers */,
 				D1239F7C2326648A00601565 /* AppDelegate.h */,
 				D1239F7D2326648A00601565 /* AppDelegate.m */,
-				D1239F822326648A00601565 /* Main.storyboard */,
 				D1239F852326648B00601565 /* Assets.xcassets */,
 				D1239F872326648B00601565 /* LaunchScreen.storyboard */,
 				D1239F8A2326648B00601565 /* Info.plist */,
@@ -362,13 +378,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11B71DA2330540500D7AD7E /* WishListCell.xib in Resources */,
-				D1418A88234598F5009CF135 /* ImageCell.xib in Resources */,
 				D1239F892326648B00601565 /* LaunchScreen.storyboard in Resources */,
 				D1418A7B23458860009CF135 /* OfferCell.xib in Resources */,
 				D1DCFD0D23398F1D00400665 /* GoogleService-Info.plist in Resources */,
 				D1239F862326648B00601565 /* Assets.xcassets in Resources */,
 				D1418A83234596D7009CF135 /* ImageViewCell.xib in Resources */,
 				D1239F842326648A00601565 /* Main.storyboard in Resources */,
+				9A9EBE1A234EA4DA00971836 /* Launch Screen.storyboard in Resources */,
+				9A803D7F234E92FB008A5C48 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,10 +513,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9EBE1D234EA6B000971836 /* LuanchViewConViewController.m in Sources */,
 				9A5670262339A45A00965923 /* SignUpControllerViewController.m in Sources */,
-				D1418A87234598F5009CF135 /* ImageCell.m in Sources */,
 				CDBBA774234AA7090086D8B8 /* LoginViewController.m in Sources */,
 				D1239F812326648A00601565 /* ViewController.m in Sources */,
+				9A9EBE20234EB0E300971836 /* MyProfileViewController.m in Sources */,
 				D1239F8C2326648B00601565 /* main.m in Sources */,
 				D1418A7A23458860009CF135 /* OfferCell.m in Sources */,
 				D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */,

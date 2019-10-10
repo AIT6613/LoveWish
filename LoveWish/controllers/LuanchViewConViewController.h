@@ -1,8 +1,8 @@
 //
-//  ImageCell.h
+//  LuanchViewConViewController.h
 //  LoveWish
 //
-//  Created by Anirut Puangkingkaew on 3/10/19.
+//  Created by 6613 on 10/10/19.
 //  Copyright © 2019 AIT. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ImageCell : UITableViewCell
+@interface LuanchViewConViewController : UIViewController
 
 @end
 
