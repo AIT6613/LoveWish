@@ -65,12 +65,19 @@
                                 } else {
                                     NSLog(@"Sign up successful.");
                                 }
+                                
+                                // dissmiss both view controller
+                                [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
                             }];
             } else {
                 NSLog(@"user: %@", [[authResult user] uid]);
             }
         }];
 
+}
+
+- (IBAction)btnCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

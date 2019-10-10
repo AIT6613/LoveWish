@@ -19,8 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WishItemTableViewController : UITableViewController
 
+@property FIRFirestore *db;
+@property FIRUser *firebaseUser;
+
 @property NSMutableArray *data;
 @property NSMutableArray *wishItems;
+
 
 @property NSString *uid;
 @property NSString *email;

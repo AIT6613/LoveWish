@@ -14,14 +14,16 @@
 
 @implementation WishItemRequestViewController
 
-@synthesize imgData,txtTitle,txtDetail,imageTableView, imgDataItem;
+@synthesize imgData,txtTitle,txtDetail,imageTableView, imgDataItem, db, firebaseUser;
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // get user from firestore
-    FIRUser *firebaseUser = [[FIRAuth auth] currentUser];
+    db = [FIRFirestore firestore];
+
+    
     
     // Need to do this because we use tableView in side viewController
     [imageTableView setDelegate:self];
@@ -61,7 +63,6 @@
     // Get the student object from Array. One object at a time.
     //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
     imgDataItem = [imgData objectAtIndex:indexPath.row];
-    NSLog(@"IMGDATA: %@", [imgDataItem objectAtIndex:0]);
     
     //[[cell imgBox] setText:[offerItem objectAtIndex:0]];
     [[cell lblName] setText:[imgDataItem objectAtIndex:0]];
@@ -80,5 +81,74 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)btnAddImage:(id)sender {
+}
+
+- (IBAction)btnSave:(id)sender {
+    
+    // get user from firestore
+    firebaseUser = [[FIRAuth auth] currentUser];
+    
+     NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+
+    // save wish item for user
+    __block FIRDocumentReference *ref = [[self.db collectionWithPath:str] addDocumentWithData:@{
+                                                                                                                                         @"title":[[self txtTitle] text],
+                                                                                                                                         @"detail":[[self txtDetail] text]
+                                                                                                                                         }
+                                                                                                                            completion:^(NSError * _Nullable error) {
+                                                                                                                                if (error != nil) {
+                                                                                                                                    NSLog(@"Error: %@", error);
+                                                                                                                                    return;
+                                                                                                                                } else {
+                                                                                                                                    NSLog(@"Add wish reqest successful. with %@",ref.documentID);
+                                         
+                                                                                                                                    [self saveImage:ref.documentID];
+                                                                                                                                    
+                                                                                                                                    [[self navigationController] popViewControllerAnimated:YES];
+                                                                                                                                }
+                                                                                                                            }];
+   
+    
+    
+    
+    
+}
+
+-(void)saveImage: (NSString *) wishItemId {
+    //save image detail for wish item
+    // if user add image
+    if (imgData)
+    {
+        
+
+        for (int i = 0; i<[imgData count]; i++) {
+            //statements
+            
+            NSMutableArray *tmpArray = [imgData objectAtIndex:i];
+            
+            
+            // save wish item for user
+            NSString *str = [NSString stringWithFormat:@"users/%@/wishItem/%@/images",[firebaseUser uid],wishItemId];
+            
+            __block FIRDocumentReference *ref = [[self.db collectionWithPath:str] addDocumentWithData:@{
+                                                                                                        @"name":[tmpArray objectAtIndex:0],
+                                                                                                        @"imageBase64Data":[tmpArray objectAtIndex:1]
+                                                                                                        }
+                                                                                           completion:^(NSError * _Nullable error) {
+                                                                                               if (error != nil) {
+                                                                                                   NSLog(@"Error: %@", error);
+                                                                                                   return;
+                                                                                               } else {
+                                                                                                   NSLog(@"Add Image successful. with %@",ref.documentID);
+                                                                                                   
+                                                                                               }
+                                                                                           }];
+        }
+        
+        
+    }
+}
 
 @end

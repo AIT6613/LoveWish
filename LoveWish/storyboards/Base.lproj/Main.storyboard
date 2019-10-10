@@ -474,6 +474,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnSave:" destination="Izs-Rn-7E8" eventType="touchUpInside" id="llx-3f-0mZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdJ-Of-CTD">
                                 <rect key="frame" x="10" y="191" width="44" height="21"/>
@@ -508,7 +511,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnAddImage:" destination="Izs-Rn-7E8" eventType="touchUpInside" id="t00-jI-cpz"/>
+                                    <action selector="btnAddImage:" destination="Izs-Rn-7E8" eventType="touchUpInside" id="I7l-bM-6qC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-jR-8FV">
@@ -550,9 +553,7 @@
                         <viewLayoutGuide key="safeArea" id="GTE-A8-peI"/>
                     </view>
                     <connections>
-                        <outlet property="btnSave" destination="rDe-ow-ajJ" id="iga-wL-QO2"/>
                         <outlet property="imageTableView" destination="QoN-XX-tgj" id="7tE-cw-ZJY"/>
-                        <outlet property="tbnAddImage" destination="wYE-8X-5qO" id="aLv-QX-OMe"/>
                         <outlet property="txtDetail" destination="wkJ-eD-pmJ" id="RnV-u1-ENW"/>
                         <outlet property="txtTitle" destination="YqO-f1-0lH" id="3Rk-PB-1LN"/>
                     </connections>

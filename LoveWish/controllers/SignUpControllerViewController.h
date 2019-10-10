@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (IBAction)btnSave:(id)sender;
+- (IBAction)btnCancel:(id)sender;
 
 @end
 

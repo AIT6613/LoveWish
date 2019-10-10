@@ -14,27 +14,72 @@
 
 @implementation WishItemTableViewController
 
-@synthesize data, wishItems, uid, email;
+@synthesize data, wishItems, uid, email, db, firebaseUser;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //data = [[NSMutableArray alloc] initWithObjects:@"{'MyItem1','xxx','eee'}",@"MyItem2",@"MyItem3",@"MyItem4",@"MyItem5",@"MyItem6",@"MyItem7",@"MyItem8",@"MyItem9 MyItem10",@"MyItem11",@"MyItem12",@"MyItem13",nil];
+    
+    db = [FIRFirestore firestore];
     data = [[NSMutableArray alloc] init];
-    [data addObject:@[@"MyItem1",@"In Objective-C, the compiler generates code that makes an underlying call to .... init?(contentsOfFile: String). Initializes a newly allocated array with the ... Returns the index of the first object in the array that passes a test in a given block. ..... Xcode · Swift · Swift Playgrounds ",@"image1"]];
-    [data addObject:@[@"MyItem2",@"In Objective-C, arrays take the form of the NSArray class. ... Instead, we can initialize all of these string objects within the contents of a collection to hold and .... Subscripting returns the object at the submitted index number of the array being accessed. .... Reference: Objective-C Fundamentals · Xcode: Warnings and Errors ...",@"image2"]];
+    
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+    
+    [[self.db collectionWithPath:str]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+             
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"title"],document[@"detail"], nil];
+                 
+                 [self.data addObject:item];
+                 
+             }
+             [self.tableView reloadData];
+         }
+     }];
     
     
-    // Pulling the data from Core Data
-    //data = [[NSMutableArray alloc] init];
+
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    FIRUser *firebaseUser = [[FIRAuth auth] currentUser];
+    firebaseUser = [[FIRAuth auth] currentUser];
     if (!firebaseUser) {
         //user not login, redirect to login in scene
         [self displayLoginScreen];
     }
+    
+    // remove all object every time to reload
+    [self.data removeAllObjects];
+    
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+    
+    [[self.db collectionWithPath:str]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+            
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"title"],document[@"detail"], nil];
+                 
+                 [self.data addObject:item];
+                 
+             }
+            [self.tableView reloadData];
+         }
+     }];
+    
+   
 }
 
 // show login screen
@@ -57,7 +102,37 @@
 // set number of item in section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [data count];
+
 }
+
+// START: DELETE by swipe in table view  ================
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // delete document in database
+
+        NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+ 
+        [[[self.db collectionWithPath:str] documentWithPath:[[data objectAtIndex:indexPath.row] objectAtIndex:0]]
+         deleteDocumentWithCompletion:^(NSError * _Nullable error) {
+             if (error != nil) {
+                 NSLog(@"Error removing document: %@", error);
+             } else {
+                 NSLog(@"WishItem successfully removed!");
+                 
+                 // delete row in table view
+                 [self.data removeObjectAtIndex:indexPath.row];
+                 [tableView reloadData];
+             }
+         }];
+        
+        
+    }
+}
+// END: DELETE by swipe in table view  ================
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -72,8 +147,8 @@
     //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
      wishItems = [data objectAtIndex:indexPath.row];
     
-    [[cell lblItemName] setText:[wishItems objectAtIndex:0]];
-    [[cell txtViewDetail] setText:[wishItems objectAtIndex:1]];
+    [[cell lblItemName] setText:[wishItems objectAtIndex:1]];
+    [[cell txtViewDetail] setText:[wishItems objectAtIndex:2]];
     
     //[[cell imgViewItem] setText:[NSString stringWithFormat:@"%@", [student valueForKey:@"sid"]]];
     
