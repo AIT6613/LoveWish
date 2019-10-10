@@ -11,6 +11,8 @@
 		9A5670262339A45A00965923 /* SignUpControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5670252339A45A00965923 /* SignUpControllerViewController.m */; };
 		9A803D7F234E92FB008A5C48 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A803D7E234E92FB008A5C48 /* Login.storyboard */; };
 		9A9EBE1A234EA4DA00971836 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9EBE19234EA4DA00971836 /* Launch Screen.storyboard */; };
+		9A9EBE1D234EA6B000971836 /* LuanchViewConViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */; };
+		9A9EBE20234EB0E300971836 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */; };
 		BA552AA95D967011EAD7BF79 /* Pods_LoveWishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */; };
 		CB0849B1B88DCBE134CB16EB /* Pods_LoveWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */; };
 		CDBBA774234AA7090086D8B8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBBA773234AA7090086D8B8 /* LoginViewController.m */; };
@@ -64,6 +66,10 @@
 		9A5670252339A45A00965923 /* SignUpControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpControllerViewController.m; sourceTree = "<group>"; };
 		9A803D7E234E92FB008A5C48 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9A9EBE19234EA4DA00971836 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9A9EBE1B234EA6B000971836 /* LuanchViewConViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuanchViewConViewController.h; sourceTree = "<group>"; };
+		9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuanchViewConViewController.m; sourceTree = "<group>"; };
+		9A9EBE1E234EB0E300971836 /* MyProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
+		9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyProfileViewController.m; sourceTree = "<group>"; };
 		9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoveWishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWishTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWishTests/Pods-LoveWishTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish-LoveWishUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +186,10 @@
 				D1418A7D23458F94009CF135 /* OfferViewController.m */,
 				CDBBA772234AA7090086D8B8 /* LoginViewController.h */,
 				CDBBA773234AA7090086D8B8 /* LoginViewController.m */,
+				9A9EBE1B234EA6B000971836 /* LuanchViewConViewController.h */,
+				9A9EBE1C234EA6B000971836 /* LuanchViewConViewController.m */,
+				9A9EBE1E234EB0E300971836 /* MyProfileViewController.h */,
+				9A9EBE1F234EB0E300971836 /* MyProfileViewController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -503,9 +513,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9EBE1D234EA6B000971836 /* LuanchViewConViewController.m in Sources */,
 				9A5670262339A45A00965923 /* SignUpControllerViewController.m in Sources */,
 				CDBBA774234AA7090086D8B8 /* LoginViewController.m in Sources */,
 				D1239F812326648A00601565 /* ViewController.m in Sources */,
+				9A9EBE20234EB0E300971836 /* MyProfileViewController.m in Sources */,
 				D1239F8C2326648B00601565 /* main.m in Sources */,
 				D1418A7A23458860009CF135 /* OfferCell.m in Sources */,
 				D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */,

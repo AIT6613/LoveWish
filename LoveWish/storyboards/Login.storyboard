@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="wNe-Rk-TPY">
             <objects>
-                <viewController id="BgQ-a9-cL7" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreen" id="BgQ-a9-cL7" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Tm-nJ-3U9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFv-zo-UxK" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="-75"/>
+            <point key="canvasLocation" x="-894" y="716"/>
         </scene>
         <!--Sign Up Controller View Controller-->
         <scene sceneID="KEa-Ls-pN4">
@@ -229,6 +229,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BgQ-a9-cL7" kind="show" id="X4k-hj-lHt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

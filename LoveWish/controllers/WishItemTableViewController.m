@@ -30,20 +30,21 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    /*
-     [super viewDidAppear:animated];
-     
-     // prepare fectch command
-     NSFetchRequest *myFetch = [NSFetchRequest fetchRequestWithEntityName:@"Students"];
-     
-     // prepare the context
-     NSManagedObjectContext *context = [[[[UIApplication sharedApplication] delegate] performSelector:@selector(persistentContainer)] viewContext];
-     
-     // execute fetch command
-     data = [[context executeFetchRequest:myFetch error:nil] mutableCopy];
-     
-     [self.tableView reloadData];
-     */
+    FIRUser *firebaseUser = [[FIRAuth auth] currentUser];
+    if (!firebaseUser) {
+        //user not login, redirect to login in scene
+        [self displayLoginScreen];
+    }
+}
+
+// show login screen
+- (void)displayLoginScreen {
+    //get Authentication.storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    //get SignInVC
+    LoginViewController *loginVC = (LoginViewController *)[storyboard instantiateViewControllerWithIdentifier:@"LoginScreen"];
+    //present SognInVC with an animation
+    [self presentViewController:loginVC animated:NO completion:nil];
 }
 
 #pragma mark - Table view data source

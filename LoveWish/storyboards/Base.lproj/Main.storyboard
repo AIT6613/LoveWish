@@ -13,7 +13,7 @@
         <!--My Profile-->
         <scene sceneID="7oB-cw-MtS">
             <objects>
-                <viewController id="p81-nI-N6s" customClass="SignUpControllerViewController" sceneMemberID="viewController">
+                <viewController id="p81-nI-N6s" customClass="MyProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="68u-3q-lGT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,10 +107,25 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVb-9M-wSV">
+                                <rect key="frame" x="87" y="551" width="200" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Elq-7f-Eq0"/>
+                                    <constraint firstAttribute="height" constant="40" id="NZw-p7-GMJ"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogout:" destination="p81-nI-N6s" eventType="touchUpInside" id="Lqa-1G-n8b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DEb-v8-2fM" firstAttribute="top" secondItem="yKC-Oi-osR" secondAttribute="bottom" constant="8" id="0jh-Rm-fgZ"/>
+                            <constraint firstItem="g7T-dm-jmc" firstAttribute="trailing" secondItem="GVb-9M-wSV" secondAttribute="trailing" constant="88" id="34J-b3-0Ds"/>
                             <constraint firstItem="bva-ob-aeR" firstAttribute="top" secondItem="DEb-v8-2fM" secondAttribute="bottom" constant="8" id="3TD-Qx-D8J"/>
                             <constraint firstItem="g7T-dm-jmc" firstAttribute="trailing" secondItem="DEb-v8-2fM" secondAttribute="trailing" constant="16" id="5P6-4R-7bQ"/>
                             <constraint firstItem="lhJ-un-Sp0" firstAttribute="top" secondItem="pdy-ny-r29" secondAttribute="bottom" constant="8" id="6gL-wU-3eD"/>
@@ -129,6 +144,8 @@
                             <constraint firstItem="g7T-dm-jmc" firstAttribute="trailing" secondItem="r0y-bJ-PBK" secondAttribute="trailing" constant="16" id="Qym-M9-2W3"/>
                             <constraint firstItem="0c2-YI-RW8" firstAttribute="top" secondItem="r0y-bJ-PBK" secondAttribute="bottom" constant="8" id="RE4-cA-REn"/>
                             <constraint firstItem="5rC-cr-Fe1" firstAttribute="top" secondItem="lhJ-un-Sp0" secondAttribute="bottom" constant="8" id="SLc-Bw-cjg"/>
+                            <constraint firstItem="g7T-dm-jmc" firstAttribute="bottom" secondItem="GVb-9M-wSV" secondAttribute="bottom" constant="27" id="TPc-g3-CGm"/>
+                            <constraint firstItem="GVb-9M-wSV" firstAttribute="leading" secondItem="g7T-dm-jmc" secondAttribute="leading" constant="87" id="TZu-N4-Lfo"/>
                             <constraint firstItem="69S-be-xik" firstAttribute="leading" secondItem="g7T-dm-jmc" secondAttribute="leading" constant="16" id="Yr1-q8-b39"/>
                             <constraint firstItem="pdy-ny-r29" firstAttribute="top" secondItem="h6T-vl-kMc" secondAttribute="bottom" constant="10" id="aGY-HD-DsY"/>
                             <constraint firstItem="GQa-em-wMd" firstAttribute="top" secondItem="0c2-YI-RW8" secondAttribute="bottom" constant="8" id="anc-7F-6n6"/>
@@ -136,6 +153,7 @@
                             <constraint firstItem="muE-t2-CFH" firstAttribute="leading" secondItem="g7T-dm-jmc" secondAttribute="leading" constant="16" id="bs1-za-Dgs"/>
                             <constraint firstItem="5rC-cr-Fe1" firstAttribute="leading" secondItem="g7T-dm-jmc" secondAttribute="leading" constant="16" id="gDH-tp-Yw7"/>
                             <constraint firstItem="0c2-YI-RW8" firstAttribute="leading" secondItem="g7T-dm-jmc" secondAttribute="leading" constant="16" id="jJv-0S-sTQ"/>
+                            <constraint firstItem="GVb-9M-wSV" firstAttribute="top" secondItem="aDP-SW-7WY" secondAttribute="bottom" constant="8" id="kj9-fO-ef1"/>
                             <constraint firstItem="h6T-vl-kMc" firstAttribute="top" secondItem="g7T-dm-jmc" secondAttribute="top" constant="14" id="l7s-Wl-O3U"/>
                             <constraint firstItem="muE-t2-CFH" firstAttribute="top" secondItem="69S-be-xik" secondAttribute="bottom" constant="8" id="lUm-1M-0Ex"/>
                             <constraint firstItem="g7T-dm-jmc" firstAttribute="trailing" secondItem="69S-be-xik" secondAttribute="trailing" constant="16" id="mpS-0V-yUw"/>
