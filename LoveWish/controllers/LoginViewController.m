@@ -16,7 +16,7 @@
 
 @implementation LoginViewController
 
-@synthesize txtEmail, txtPassword, switchContributor, db, uid, email;
+@synthesize txtEmail, txtPassword, swhContributor, db, uid, email;
 
 
 - (void)viewDidLoad {

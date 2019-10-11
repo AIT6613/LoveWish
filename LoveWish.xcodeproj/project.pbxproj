@@ -16,6 +16,7 @@
 		9A9EBE23234EBD6B00971836 /* WishItemRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9EBE22234EBD6B00971836 /* WishItemRequestViewController.m */; };
 		BA552AA95D967011EAD7BF79 /* Pods_LoveWishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BF804041CF1C2A47ECD03D1 /* Pods_LoveWishTests.framework */; };
 		CB0849B1B88DCBE134CB16EB /* Pods_LoveWish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63576605B24E03DEFFBF0F97 /* Pods_LoveWish.framework */; };
+		CD899188235093BE0005070E /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = CD899187235093BE0005070E /* Alert.m */; };
 		CDBBA774234AA7090086D8B8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBBA773234AA7090086D8B8 /* LoginViewController.m */; };
 		D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D22330539700D7AD7E /* WishItemTableViewController.m */; };
 		D11B71D92330540500D7AD7E /* WishListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D11B71D72330540500D7AD7E /* WishListCell.m */; };
@@ -77,6 +78,8 @@
 		9D749A734B23CBA721E7EB39 /* Pods-LoveWishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWishTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWishTests/Pods-LoveWishTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2215C910D2C901EB6C1121C /* Pods-LoveWish-LoveWishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish-LoveWishUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoveWish-LoveWishUITests/Pods-LoveWish-LoveWishUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CBBEC8DCE99B17F046D5741D /* Pods-LoveWish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveWish.release.xcconfig"; path = "Target Support Files/Pods-LoveWish/Pods-LoveWish.release.xcconfig"; sourceTree = "<group>"; };
+		CD899186235093BE0005070E /* Alert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alert.h; sourceTree = "<group>"; };
+		CD899187235093BE0005070E /* Alert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Alert.m; sourceTree = "<group>"; };
 		CDBBA772234AA7090086D8B8 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CDBBA773234AA7090086D8B8 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D11B71D12330539700D7AD7E /* WishItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WishItemTableViewController.h; sourceTree = "<group>"; };
@@ -174,6 +177,15 @@
 			path = storyboards;
 			sourceTree = "<group>";
 		};
+		CD899185235084CE0005070E /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				CD899186235093BE0005070E /* Alert.h */,
+				CD899187235093BE0005070E /* Alert.m */,
+			);
+			name = classes;
+			sourceTree = "<group>";
+		};
 		D1208E8423306F3B007154D5 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 		D1239F7B2326648A00601565 /* LoveWish */ = {
 			isa = PBXGroup;
 			children = (
+				CD899185235084CE0005070E /* classes */,
 				9A803D7D234E92A0008A5C48 /* storyboards */,
 				D1DCFD0C23398F1D00400665 /* GoogleService-Info.plist */,
 				D1208E8523306F46007154D5 /* cells */,
@@ -528,6 +541,7 @@
 				9A9EBE23234EBD6B00971836 /* WishItemRequestViewController.m in Sources */,
 				D1418A82234596D7009CF135 /* ImageViewCell.m in Sources */,
 				D1208E832330698D007154D5 /* WishItemDetailViewController.m in Sources */,
+				CD899188235093BE0005070E /* Alert.m in Sources */,
 				D1418A7E23458F94009CF135 /* OfferViewController.m in Sources */,
 				D11B71D42330539700D7AD7E /* WishItemTableViewController.m in Sources */,
 				D11B71D92330540500D7AD7E /* WishListCell.m in Sources */,

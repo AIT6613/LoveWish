@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
-@property (weak, nonatomic) IBOutlet UISwitch *switchContributor;
+@property (weak, nonatomic) IBOutlet UISwitch *swhContributor;
 
 
 

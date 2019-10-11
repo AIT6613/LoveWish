@@ -21,10 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *txtLastName;
 @property (weak, nonatomic) IBOutlet UITextField *txtContactNumber;
 @property (weak, nonatomic) IBOutlet UITextField *txtAddress;
+@property (weak, nonatomic) IBOutlet UISwitch *swbContributor;
+@property NSString *userType;
 
 
 - (IBAction)btnSave:(id)sender;
 - (IBAction)btnCancel:(id)sender;
+- (IBAction)swhClick:(id)sender;
+
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
 
 @end
 
