@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "WishListCell.h"
+#import "OfferCell.h"
 @import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,14 +21,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property FIRUser *firebaseUser;
 @property NSString *userType;
 
+@property FIRFirestore *db;
+
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;
+@property (weak, nonatomic) IBOutlet UIButton *btnCreateNewOffer;
 
 @property (weak, nonatomic) IBOutlet UITextView *txtViewDetail;
 @property (weak, nonatomic) IBOutlet UITableView *offerTableView;
 
 
 - (IBAction)lblCreateNewOffer:(id)sender;
-
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
 @end
 
 NS_ASSUME_NONNULL_END

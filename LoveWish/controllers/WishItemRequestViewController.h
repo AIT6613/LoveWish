@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ImageViewCell.h"
+#import <Photos/Photos.h>
 @import Firebase;
 
 
@@ -29,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)btnSave:(id)sender;
 
 -(void)saveImage: (NSString *) wishItemId;
+- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
 
 @end
 

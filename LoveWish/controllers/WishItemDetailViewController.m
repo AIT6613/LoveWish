@@ -16,25 +16,48 @@
 
 @implementation WishItemDetailViewController
 
-@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView, isNew, userType, firebaseUser, offerData;
+@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView, isNew, userType, firebaseUser, offerData, db;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    db = [FIRFirestore firestore];
     
     // Need to do this because we use tableView in side viewController
     [offerTableView setDelegate:self];
     [offerTableView setDataSource:self];
     
-    [lblItemName setText:[data objectAtIndex:1]];
-    [txtViewDetail setText:[data objectAtIndex:2]];
+    // display wish request item detail
+    [lblItemName setText:[data objectAtIndex:2]];
+    [txtViewDetail setText:[data objectAtIndex:3]];
+    
+    // check if userType is User, hide create new offer button
+    if ([[self userType] isEqualToString:@"User"]){
+        [[self btnCreateNewOffer] setHidden:YES];
+    }
     
 
     // get offer data to show in the offer item list
     self.offerData = [[NSMutableArray alloc] init];
-//    [self.offerData addObject:@[@"Offer1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
-//    [self.offerData addObject:@[@"Offer2",@"356357658476857867",@"offerImage2"]];
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems/%@/offers",[self.data objectAtIndex:0],[self.data objectAtIndex:1]];
+    [[self.db collectionWithPath:str]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+             [self displayAlertWith:@"Alert" andMessage:@"Get offer data fail."];
+             return;
+             
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 // store data uid, wishItemid, title, detail
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"description"],document[@"price"], nil];
+                 
+                 [self.offerData addObject:item];
+                 
+             }
+             [self.offerTableView reloadData];
+         }
+     }];
     
      
 }
@@ -44,7 +67,27 @@
     // remove all object every time to reload
     [self.offerData removeAllObjects];
     
-    // TODO: do the same thing with did load
+    // get offer data to show in the offer item list
+    self.offerData = [[NSMutableArray alloc] init];
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems/%@/offers",[self.data objectAtIndex:0],[self.data objectAtIndex:1]];
+    [[self.db collectionWithPath:str]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+             [self displayAlertWith:@"Alert" andMessage:@"Get offer data fail."];
+             return;
+             
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 // store data uid, wishItemid, title, detail
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"description"],document[@"price"], nil];
+                 
+                 [self.offerData addObject:item];
+                 
+             }
+             [self.offerTableView reloadData];
+         }
+     }];
 }
 
 
@@ -66,20 +109,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Register custom design
-    [self.offerTableView registerNib:[UINib nibWithNibName:@"WishListCell"
+    [self.offerTableView registerNib:[UINib nibWithNibName:@"OfferCell"
                                                bundle:nil]
-         forCellReuseIdentifier:@"wishItemCell"];
+         forCellReuseIdentifier:@"OfferCell"];
     
-    WishListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"wishItemCell" forIndexPath:indexPath];
+    OfferCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OfferCell" forIndexPath:indexPath];
     
-    // Get the student object from Array. One object at a time.
-    //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
+    // get offer then display in tableview
     offerItem = [self.offerData objectAtIndex:indexPath.row];
     
-    [[cell lblItemName] setText:[offerItem objectAtIndex:0]];
-    [[cell txtViewDetail] setText:[offerItem objectAtIndex:1]];
-    
-    //[[cell imgViewItem] setText:[NSString stringWithFormat:@"%@", [student valueForKey:@"sid"]]];
+    [[cell lblDescription] setText:[offerItem objectAtIndex:1]];
+    [[cell lblPrice] setText:[offerItem objectAtIndex:2]];
     
     return cell;
 }
@@ -100,7 +140,9 @@
         
         //pass data to wish item request screen
         vc.offerData = offerItem;
+        vc.wishItemData = data;
         vc.isNew = 0;
+        vc.firebaseUser = self.firebaseUser;
         
     }
 }
@@ -109,6 +151,20 @@
 - (IBAction)lblCreateNewOffer:(id)sender {
 
 }
+
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+
 @end
 
 

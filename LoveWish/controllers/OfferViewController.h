@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "ImageViewCell.h"
+#import <Photos/Photos.h>
+@import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,10 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 <UITableViewDelegate, UITableViewDataSource>
 
 @property NSMutableArray *offerData;
+@property NSMutableArray *wishItemData;
 @property NSMutableArray *imageData;
 @property NSMutableArray *imageItem;
 
 @property int isNew;
+
+@property FIRFirestore *db;
+@property FIRUser *firebaseUser;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemName;
@@ -27,9 +33,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *txtPrice;
 
 
+
 - (IBAction)btnSave:(id)sender;
 - (IBAction)btnAddImageClick:(id)sender;
 
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
+- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
+
+
+- (void)saveImage: (NSString *) offerId;
 
 @end
 

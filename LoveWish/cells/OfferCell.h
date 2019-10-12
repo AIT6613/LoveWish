@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OfferCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewOffer;
+@property (weak, nonatomic) IBOutlet UILabel *lblDescription;
+@property (weak, nonatomic) IBOutlet UILabel *lblPrice;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -27,9 +27,6 @@
     
     if (!firebaseUser)
     {
-        //NSLog(@"===============Here===============");
-        //NSLog(@"%@",firebaseUser);
-        
         [self displayLoginScreen];
         return;
     }
@@ -65,7 +62,7 @@
     // if userType is User, get only wish item for that user
     // if userType is Contributor, get all wish item from every user
     
-    NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
     
     if ([self.userType isEqualToString:@"User"])
     {
@@ -76,9 +73,8 @@
                  
              } else {
                  for (FIRDocumentSnapshot *document in snapshot.documents) {
-                     NSLog(@"%@ => %@", document.documentID, document.data);
-                     
-                     NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"title"],document[@"detail"], nil];
+                     // store data uid, wishItemid, title, detail
+                     NSArray *item = [[NSArray alloc] initWithObjects:[self.firebaseUser uid],document.documentID, document[@"title"],document[@"detail"], nil];
                      
                      [self.data addObject:item];
                      
@@ -112,7 +108,7 @@
     // remove all object every time to reload
     [self.data removeAllObjects];
     
-    NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
     
     [[self.db collectionWithPath:str]
      getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
@@ -123,7 +119,7 @@
              for (FIRDocumentSnapshot *document in snapshot.documents) {
                  NSLog(@"%@ => %@", document.documentID, document.data);
                  
-                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"title"],document[@"detail"], nil];
+                 NSArray *item = [[NSArray alloc] initWithObjects:[self.firebaseUser uid],document.documentID, document[@"title"],document[@"detail"], nil];
                  
                  [self.data addObject:item];
                  
@@ -167,7 +163,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // delete document in database
 
-        NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
+        NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
  
         [[[self.db collectionWithPath:str] documentWithPath:[[data objectAtIndex:indexPath.row] objectAtIndex:0]]
          deleteDocumentWithCompletion:^(NSError * _Nullable error) {
@@ -200,8 +196,8 @@
     //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
      wishItems = [data objectAtIndex:indexPath.row];
     
-    [[cell lblItemName] setText:[wishItems objectAtIndex:1]];
-    [[cell txtViewDetail] setText:[wishItems objectAtIndex:2]];
+    [[cell lblItemName] setText:[wishItems objectAtIndex:2]];
+    [[cell txtViewDetail] setText:[wishItems objectAtIndex:3]];
     
     //[[cell imgViewItem] setText:[NSString stringWithFormat:@"%@", [student valueForKey:@"sid"]]];
     
