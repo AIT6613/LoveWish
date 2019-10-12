@@ -14,7 +14,7 @@
 
 @implementation OfferViewController
 
-@synthesize lblTitle,lblItemName,textViewDescription, imageTableView, data, offerItem, isNew;
+@synthesize lblTitle,lblItemName,textViewDescription, imageTableView, imageData, txtPrice, imageItem, isNew, offerData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,15 +25,13 @@
     [imageTableView setDelegate:self];
     [imageTableView setDataSource:self];
     
-    [lblItemName setText:[data objectAtIndex:0]];
-    [textViewDescription setText:[data objectAtIndex:1]];
+    [lblItemName setText:[offerData objectAtIndex:0]];
+    [textViewDescription setText:[offerData objectAtIndex:1]];
     
-    
-    // SHOW OFFER DATA IN TABLE VIEW
-    //data = [[NSMutableArray alloc] initWithObjects:@"{'MyItem1','xxx','eee'}",@"MyItem2",@"MyItem3",@"MyItem4",@"MyItem5",@"MyItem6",@"MyItem7",@"MyItem8",@"MyItem9 MyItem10",@"MyItem11",@"MyItem12",@"MyItem13",nil];
-    data = [[NSMutableArray alloc] init];
-    [data addObject:@[@"imageName1",@"offerImage1"]];
-    [data addObject:@[@"imageName2",@"offerImage2"]];
+    // Show data
+    imageData = [[NSMutableArray alloc] init];
+    [imageData addObject:@[@"imageName1",@"offerImage1"]];
+    [imageData addObject:@[@"imageName2",@"offerImage2"]];
     
 
     
@@ -73,26 +71,25 @@
 
 // set number of item in section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [data count];
+    return [imageData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Register custom design
-    [self.imageTableView registerNib:[UINib nibWithNibName:@"WishListCell"
+    [self.imageTableView registerNib:[UINib nibWithNibName:@"ImageViewCell"
                                                     bundle:nil]
-              forCellReuseIdentifier:@"wishItemCell"];
+              forCellReuseIdentifier:@"ImageViewCell"];
     
-    WishListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"wishItemCell" forIndexPath:indexPath];
+    ImageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageViewCell" forIndexPath:indexPath];
     
     // Get the student object from Array. One object at a time.
     //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
-    offerItem = [data objectAtIndex:indexPath.row];
+    imageItem = [imageData objectAtIndex:indexPath.row];
     
-    [[cell lblItemName] setText:[offerItem objectAtIndex:0]];
-    [[cell txtViewDetail] setText:[offerItem objectAtIndex:1]];
+    //[[cell ] setText:[offerItem objectAtIndex:0]];
+    [[cell lblName] setText:[imageItem objectAtIndex:1]];
     
-    //[[cell imgViewItem] setText:[NSString stringWithFormat:@"%@", [student valueForKey:@"sid"]]];
     
     return cell;
 }

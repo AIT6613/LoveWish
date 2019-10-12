@@ -16,7 +16,7 @@
 
 @implementation WishItemDetailViewController
 
-@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView, isNew;
+@synthesize data, lblItemName, txtViewDetail, offerItem, offerTableView, isNew, userType, firebaseUser, offerData;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,39 +27,24 @@
     [offerTableView setDelegate:self];
     [offerTableView setDataSource:self];
     
-    [lblItemName setText:[data objectAtIndex:0]];
-    [txtViewDetail setText:[data objectAtIndex:1]];
+    [lblItemName setText:[data objectAtIndex:1]];
+    [txtViewDetail setText:[data objectAtIndex:2]];
+    
 
+    // get offer data to show in the offer item list
+    self.offerData = [[NSMutableArray alloc] init];
+//    [self.offerData addObject:@[@"Offer1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
+//    [self.offerData addObject:@[@"Offer2",@"356357658476857867",@"offerImage2"]];
     
-    // SHOW OFFER DATA IN TABLE VIEW
-    //data = [[NSMutableArray alloc] initWithObjects:@"{'MyItem1','xxx','eee'}",@"MyItem2",@"MyItem3",@"MyItem4",@"MyItem5",@"MyItem6",@"MyItem7",@"MyItem8",@"MyItem9 MyItem10",@"MyItem11",@"MyItem12",@"MyItem13",nil];
-    data = [[NSMutableArray alloc] init];
-    [data addObject:@[@"Offer1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
-    [data addObject:@[@"Offer2",@"356357658476857867",@"offerImage2"]];
-    
-    
-    // Pulling the data from Core Data
-    //data = [[NSMutableArray alloc] init];
-     
      
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    /*
-     [super viewDidAppear:animated];
-     
-     // prepare fectch command
-     NSFetchRequest *myFetch = [NSFetchRequest fetchRequestWithEntityName:@"Students"];
-     
-     // prepare the context
-     NSManagedObjectContext *context = [[[[UIApplication sharedApplication] delegate] performSelector:@selector(persistentContainer)] viewContext];
-     
-     // execute fetch command
-     data = [[context executeFetchRequest:myFetch error:nil] mutableCopy];
-     
-     [self.tableView reloadData];
-     */
+    // remove all object every time to reload
+    [self.offerData removeAllObjects];
+    
+    // TODO: do the same thing with did load
 }
 
 
@@ -67,7 +52,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 
-
+// [START] setup table view ===========
 // set number of section
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -75,7 +60,7 @@
 
 // set number of item in section
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [data count];
+    return [self.offerData count];
 }
 
 
@@ -89,7 +74,7 @@
     
     // Get the student object from Array. One object at a time.
     //NSManagedObject *student = [data objectAtIndex:[indexPath row]];
-    offerItem = [data objectAtIndex:indexPath.row];
+    offerItem = [self.offerData objectAtIndex:indexPath.row];
     
     [[cell lblItemName] setText:[offerItem objectAtIndex:0]];
     [[cell txtViewDetail] setText:[offerItem objectAtIndex:1]];
@@ -99,11 +84,12 @@
     return cell;
 }
 
+// [FINISH] setup table view ===========
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    offerItem = [data objectAtIndex:indexPath.row];
+    offerItem = [self.offerData objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"toOfferDetail" sender:nil];
 }
-
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //find segue
@@ -113,19 +99,12 @@
         OfferViewController *vc = [segue destinationViewController];
         
         //pass data to wish item request screen
-        vc.data = offerItem;
+        vc.offerData = offerItem;
         vc.isNew = 0;
         
     }
 }
 
-
-- (IBAction)btnAddImage:(id)sender {
-    
-    
-    
-    
-}
 
 - (IBAction)lblCreateNewOffer:(id)sender {
 

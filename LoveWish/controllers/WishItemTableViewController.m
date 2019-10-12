@@ -14,7 +14,7 @@
 
 @implementation WishItemTableViewController
 
-@synthesize data, wishItems, uid, email, db, firebaseUser;
+@synthesize data, wishItems, uid, email, userType, db, firebaseUser;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,25 +22,68 @@
     db = [FIRFirestore firestore];
     data = [[NSMutableArray alloc] init];
     
+    // get user from firestore
+    firebaseUser = [[FIRAuth auth] currentUser];
+    
+    // get user detail
+    // get user detail from database
+    FIRDocumentReference *docRef =
+    [[self.db collectionWithPath:@"users"] documentWithPath:[firebaseUser uid]];
+    [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+        if (snapshot.exists) {
+            // Document data may be nil if the document exists but has no keys or values.
+            NSLog(@"User data: %@", snapshot.data);
+            
+            self.userType = snapshot.data[@"userType"];
+            
+            // TODO: hide add button
+            
+        } else {
+            NSLog(@"User does not exist");
+            [self displayAlertWith:@"Alert" andMessage:error.localizedDescription];
+            
+            [self signoutUser];
+            
+            // go back to root in tabbar controller
+            [[self tabBarController] setSelectedIndex:0];
+        }
+    }];
+    
+    
+    
+    // get request wish item
+    // if userType is User, get only wish item for that user
+    // if userType is Contributor, get all wish item from every user
+    
     NSString *str = [NSString stringWithFormat:@"users/%@/wishItem",[firebaseUser uid]];
     
-    [[self.db collectionWithPath:str]
-     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
-         if (error != nil) {
-             NSLog(@"Error getting documents: %@", error);
-             
-         } else {
-             for (FIRDocumentSnapshot *document in snapshot.documents) {
-                 NSLog(@"%@ => %@", document.documentID, document.data);
+    if ([self.userType isEqualToString:@"User"])
+    {
+        [[self.db collectionWithPath:str]
+         getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+             if (error != nil) {
+                 NSLog(@"Error getting documents: %@", error);
                  
-                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"title"],document[@"detail"], nil];
-                 
-                 [self.data addObject:item];
-                 
+             } else {
+                 for (FIRDocumentSnapshot *document in snapshot.documents) {
+                     NSLog(@"%@ => %@", document.documentID, document.data);
+                     
+                     NSArray *item = [[NSArray alloc] initWithObjects:document.documentID, document[@"title"],document[@"detail"], nil];
+                     
+                     [self.data addObject:item];
+                     
+                 }
+                 [self.tableView reloadData];
              }
-             [self.tableView reloadData];
-         }
-     }];
+         }];
+    } else{
+        // get all user
+        
+        // loop user to get wish item
+        // add with item to data
+    }
+    
+    
     
     
 
@@ -169,78 +212,34 @@
         
         //pass data to wish item request screen
         vc.data = wishItems;
+        vc.firebaseUser = self.firebaseUser;
+        vc.userType = self.userType;
         
     }
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    // Configure the cell...
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
     
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
     
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)signoutUser{
+    //sign out
+    NSError *signOutError;
+    BOOL status = [[FIRAuth auth] signOut:&signOutError];
+    if (!status) {
+        // Show alert, logout error
+        [self displayAlertWith:@"Alert" andMessage:@"Logout Error. Please try again."];
+        
+        return;
+    }
 }
-*/
 
 @end

@@ -33,8 +33,8 @@
     // SHOW OFFER DATA IN TABLE VIEW
     //data = [[NSMutableArray alloc] initWithObjects:@"{'MyItem1','xxx','eee'}",@"MyItem2",@"MyItem3",@"MyItem4",@"MyItem5",@"MyItem6",@"MyItem7",@"MyItem8",@"MyItem9 MyItem10",@"MyItem11",@"MyItem12",@"MyItem13",nil];
     imgData = [[NSMutableArray alloc] init];
-    [imgData addObject:@[@"image1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
-    [imgData addObject:@[@"image2",@"356357658476857867",@"offerImage2"]];
+//    [imgData addObject:@[@"image1",@"fkadlfl;adsfaksdfla",@"offerImage1"]];
+//    [imgData addObject:@[@"image2",@"356357658476857867",@"offerImage2"]];
     
     
     // Pulling the data from Core Data

@@ -16,13 +16,17 @@
 
 @implementation LoginViewController
 
-@synthesize txtEmail, txtPassword, swhContributor, db, uid, email;
+@synthesize txtEmail, txtPassword, swhContributor, db, userType;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // connect to firestore database
     db = [FIRFirestore firestore];
+    
+    // set default for contributor switch to off
+    self.userType = @"User";
+    [self.swhContributor setOn:NO];
 }
 
 /*
@@ -44,18 +48,7 @@
             // check if have an error
             if (error) {
                 // show alert
-                NSLog(@"%@",[error localizedDescription]);
-                NSLog(@"Login Failed!!!!!!!");
-                
-                // Show alert, login fail
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Email or Password are not correct." preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    //button click event
-                }];
-                
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
+                [self displayAlertWith:@"Alert" andMessage:@"Email or Password are not correct."];
                 
                 return;
             }
@@ -63,41 +56,40 @@
             // check if successful login
             if ([authResult user]){
                 
-                // [START get_user_profile]
+                // get user from firestore
                 FIRUser *user = [FIRAuth auth].currentUser;
-                // [END get_user_profile]
                 
-                // [START user_profile]
-                if (user) {
-                    // The user's ID, unique to the Firebase project.
-                    // Do NOT use this value to authenticate with your backend server,
-                    // if you have one. Use getTokenWithCompletion:completion: instead.
-                    self.uid = user.uid;
-                    self.email = user.email;
-                    
-                    NSLog(@"userid: %@  email:%@", self.uid, self.email);
-                    
-                    // Show Welcome, and move to main wish table page
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Welcome" message:@"Login Success." preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        //button click event
+                // get user detail
+                FIRDocumentReference *docRef =
+                [[self.db collectionWithPath:@"users"] documentWithPath:[user uid]];
+                [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+                    if (snapshot.exists) {
+                        // Document data may be nil if the document exists but has no keys or values.
+                        NSLog(@"User data: %@", snapshot.data);
                         
+                        if ([snapshot.data[@"userType"] isEqualToString:self.userType] )
+                        {
+                            // dismiss login screen
+                            [self dismissViewControllerAnimated:(YES) completion:nil];
+                        } else {
+                            // display get user fail
+                            NSLog(@"User does not exist");
+                            [self displayAlertWith:@"Alert" andMessage:@"User type not match."];
+                            [self signoutUser];
+                        }
                         
-                        // dismiss login screen
-                        [self dismissViewControllerAnimated:(YES) completion:nil];
-                    }];
-                    
-                    [alert addAction:ok];
-                    [self presentViewController:alert animated:YES completion:nil];
-                    
-                    
-                    
-                    
-                }
+                    } else {
+                        // display get user fail
+                        NSLog(@"User does not exist");
+                        [self displayAlertWith:@"Alert" andMessage:error.localizedDescription];
+                    }
+                }];
 
             } else {
                 NSLog(@"user: %@", [[authResult user] uid]);
+                
+                // display fail alert
+                [self displayAlertWith:@"Alert" andMessage:@"Login fail. Does not have dis user in the system."];
             }
         }];
         
@@ -105,29 +97,56 @@
     else
     {
         // Show alert, ask user to fill in information again
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"Please input both email and password." preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //button click event
-        }];
-
-        [alert addAction:ok];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self displayAlertWith:@"Alert" andMessage:@"Please input both email and password."];
     }
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //find segue
-    if ([[segue identifier] isEqualToString: @"toWishTable"])
-    {
-        //get reference to the destination view controller
-        WishItemTableViewController *vc = [segue destinationViewController];
+- (IBAction)switchToggle:(id)sender {
+    if ([self.swhContributor isOn]) {
+        self.userType = @"Contributor";
+    } else {
+        self.userType = @"User";
+    }
+}
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    //find segue
+//    if ([[segue identifier] isEqualToString: @"toWishTable"])
+//    {
+//        //get reference to the destination view controller
+//        WishItemTableViewController *vc = [segue destinationViewController];
+//
+//        //pass data to wish item request screen
+//        vc.uid = self.uid;
+//        vc.email = self.email;
+//
+//    }
+//}
+
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        //pass data to wish item request screen
-        vc.uid = self.uid;
-        vc.email = self.email;
+        // dismiss screen
+        //[self dismissViewControllerAnimated:(YES) completion:nil];
+    }];
+    
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)signoutUser{
+    //sign out
+    NSError *signOutError;
+    BOOL status = [[FIRAuth auth] signOut:&signOutError];
+    if (!status) {
+        // Show alert, logout error
+        [self displayAlertWith:@"Alert" andMessage:@"Logout Error. Please try again."];
         
+        return;
     }
 }
 

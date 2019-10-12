@@ -8,22 +8,23 @@
 
 #import "ViewController.h"
 #import "WishListCell.h"
+@import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WishItemDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource>
+@interface WishItemDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property NSMutableArray *data;
+@property NSMutableArray *offerData;
 @property NSMutableArray *offerItem;
 @property NSNumber *isNew;
+@property FIRUser *firebaseUser;
+@property NSString *userType;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblItemName;
 
 @property (weak, nonatomic) IBOutlet UITextView *txtViewDetail;
 @property (weak, nonatomic) IBOutlet UITableView *offerTableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *imageTableView;
-
-- (IBAction)btnAddImage:(id)sender;
 
 
 - (IBAction)lblCreateNewOffer:(id)sender;

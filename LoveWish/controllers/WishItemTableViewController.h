@@ -28,9 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSString *uid;
 @property NSString *email;
+@property NSString *userType;
 
 @property(nonatomic) FIRFirestore *ref;
 
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
+- (void)signoutUser;
 
 @end
 

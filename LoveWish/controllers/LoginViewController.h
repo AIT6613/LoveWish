@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LoginViewController : UIViewController
 
 @property FIRFirestore *db;
-@property NSString *uid;
-@property NSString *email;
+@property NSString *userType;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
@@ -27,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (IBAction)btnLogin:(id)sender;
+- (IBAction)switchToggle:(id)sender;
+
+- (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
+- (void)signoutUser;
+
 
 @end
 

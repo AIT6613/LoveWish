@@ -31,7 +31,7 @@
                                 <rect key="frame" x="145" y="98" width="214" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaN-ko-Oqr">
                                 <rect key="frame" x="16" y="136" width="118" height="30"/>
@@ -43,10 +43,13 @@
                                 <rect key="frame" x="145" y="136" width="214" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Chj-xk-iWf">
                                 <rect key="frame" x="145" y="174" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchToggle:" destination="BgQ-a9-cL7" eventType="valueChanged" id="ZcY-S8-YZ8"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYA-jb-CBR">
                                 <rect key="frame" x="16" y="221" width="343" height="30"/>
@@ -151,7 +154,7 @@
                                 <rect key="frame" x="16" y="163" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l7u-AU-WXb">
                                 <rect key="frame" x="16" y="201" width="343" height="30"/>
@@ -267,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSA-Wi-fWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="-75.112443778110944"/>
+            <point key="canvasLocation" x="-111" y="-9"/>
         </scene>
     </scenes>
 </document>

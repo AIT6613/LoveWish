@@ -19,24 +19,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="481" height="41.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4s-tp-wRc">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t4s-tp-wRc">
                         <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="avQ-jo-c83"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGL-Dr-GLO">
-                        <rect key="frame" x="50" y="10" width="422" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGL-Dr-GLO">
+                        <rect key="frame" x="58" y="10" width="407" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="t4s-tp-wRc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LY4-ca-R20"/>
-                    <constraint firstItem="UGL-Dr-GLO" firstAttribute="leading" secondItem="t4s-tp-wRc" secondAttribute="trailing" constant="8" id="SLI-RU-cKS"/>
-                    <constraint firstItem="t4s-tp-wRc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eJM-Sj-KTj"/>
-                    <constraint firstItem="UGL-Dr-GLO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eRU-Gj-7d0"/>
-                    <constraint firstAttribute="trailing" secondItem="UGL-Dr-GLO" secondAttribute="trailing" constant="16" id="fg4-H3-SCM"/>
-                    <constraint firstAttribute="bottom" secondItem="t4s-tp-wRc" secondAttribute="bottom" constant="-0.5" id="sTZ-5n-r4h"/>
-                    <constraint firstAttribute="bottom" secondItem="UGL-Dr-GLO" secondAttribute="bottom" constant="10.5" id="wze-zQ-WVc"/>
+                    <constraint firstAttribute="bottom" secondItem="UGL-Dr-GLO" secondAttribute="bottom" constant="10.5" id="3U9-gQ-3ls"/>
+                    <constraint firstAttribute="bottom" secondItem="t4s-tp-wRc" secondAttribute="bottom" id="8l0-Pc-2en"/>
+                    <constraint firstItem="UGL-Dr-GLO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="VBS-Id-cML"/>
+                    <constraint firstItem="t4s-tp-wRc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="feZ-vK-y5a"/>
+                    <constraint firstAttribute="bottom" secondItem="t4s-tp-wRc" secondAttribute="bottom" constant="-0.5" id="giW-GM-KIx"/>
+                    <constraint firstAttribute="trailing" secondItem="UGL-Dr-GLO" secondAttribute="trailing" constant="16" id="jgf-0B-7pA"/>
+                    <constraint firstItem="t4s-tp-wRc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ojV-LY-h1S"/>
+                    <constraint firstItem="UGL-Dr-GLO" firstAttribute="leading" secondItem="t4s-tp-wRc" secondAttribute="trailing" constant="16" id="zrm-vA-dYL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

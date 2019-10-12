@@ -7,15 +7,16 @@
 //
 
 #import "ViewController.h"
-#import "WishListCell.h"
+#import "ImageViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OfferViewController : ViewController
 <UITableViewDelegate, UITableViewDataSource>
 
-@property NSMutableArray *data;
-@property NSMutableArray *offerItem;
+@property NSMutableArray *offerData;
+@property NSMutableArray *imageData;
+@property NSMutableArray *imageItem;
 
 @property int isNew;
 
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *lblItemName;
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (weak, nonatomic) IBOutlet UITableView *imageTableView;
+@property (weak, nonatomic) IBOutlet UITextField *txtPrice;
 
 
 - (IBAction)btnSave:(id)sender;
