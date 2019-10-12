@@ -14,7 +14,7 @@
 
 @implementation WishItemTableViewController
 
-@synthesize data, wishItems, uid, email, userType, db, firebaseUser;
+@synthesize data, wishItems, uid, email, userType, db, firebaseUser, ref;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,11 +25,21 @@
     // get user from firestore
     firebaseUser = [[FIRAuth auth] currentUser];
     
+    if (!firebaseUser)
+    {
+        NSLog(@"===============Here===============");
+        //NSLog(@"%@",firebaseUser);
+        
+        [self displayLoginScreen];
+        return;
+    }
+    
     // get user detail
     // get user detail from database
     FIRDocumentReference *docRef =
     [[self.db collectionWithPath:@"users"] documentWithPath:[firebaseUser uid]];
     [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+        
         if (snapshot.exists) {
             // Document data may be nil if the document exists but has no keys or values.
             NSLog(@"User data: %@", snapshot.data);

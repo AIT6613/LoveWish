@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WishItemDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface WishItemDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property NSMutableArray *data;
 @property NSMutableArray *offerData;
