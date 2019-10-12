@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (IBAction)btnSave:(id)sender;
+- (IBAction)btnAddImageClick:(id)sender;
 
 
 @end

@@ -27,7 +27,7 @@
     
     if (!firebaseUser)
     {
-        NSLog(@"===============Here===============");
+        //NSLog(@"===============Here===============");
         //NSLog(@"%@",firebaseUser);
         
         [self displayLoginScreen];
