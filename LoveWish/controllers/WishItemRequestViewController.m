@@ -134,11 +134,10 @@
     
     // get user from firestore
     firebaseUser = [[FIRAuth auth] currentUser];
-    
-     NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
 
     // save wish item for user
-    __block FIRDocumentReference *ref = [[self.db collectionWithPath:str] addDocumentWithData:@{
+    __block FIRDocumentReference *ref = [[self.db collectionWithPath:@"wishItemRequests"] addDocumentWithData:@{
+            @"uid":[firebaseUser uid],
             @"title":[[self txtTitle] text],
             @"detail":[[self txtDetail] text]} completion:^(NSError * _Nullable error)
                 {
@@ -168,11 +167,8 @@
             
             NSMutableArray *tmpArray = [imgData objectAtIndex:i];
             
-            
-            // save wish item for user
-            NSString *str = [NSString stringWithFormat:@"users/%@/wishItems/%@/images",[firebaseUser uid],wishItemId];
-            
-            __block FIRDocumentReference *ref = [[self.db collectionWithPath:str] addDocumentWithData:@{
+            __block FIRDocumentReference *ref = [[self.db collectionWithPath:@"images"] addDocumentWithData:@{
+                                                                                                    @"useFor":wishItemId,
                                                                                                         @"name":[tmpArray objectAtIndex:0],
                                                              
                                                            // Not save image data due to firestore limitation.                                             //@"imageBase64Data":[tmpArray objectAtIndex:1]

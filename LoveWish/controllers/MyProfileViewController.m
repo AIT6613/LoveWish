@@ -141,6 +141,8 @@
     
     // go back to root in tabbar controller
     [[self tabBarController] setSelectedIndex:0];
+    
+    [self displayLoginScreen];
 
 }
 

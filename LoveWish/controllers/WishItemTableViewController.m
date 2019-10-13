@@ -24,9 +24,62 @@
     
     // get user from firestore
     firebaseUser = [[FIRAuth auth] currentUser];
-    
     if (!firebaseUser)
     {
+        [self displayLoginScreen];
+        return;
+    }
+    
+    // get user detail
+    // get user detail from database
+//    FIRDocumentReference *docRef =
+//    [[self.db collectionWithPath:@"users"] documentWithPath:[firebaseUser uid]];
+//    [docRef getDocumentWithCompletion:^(FIRDocumentSnapshot *snapshot, NSError *error) {
+//        
+//        if (snapshot.exists) {
+//            // Document data may be nil if the document exists but has no keys or values.
+//            NSLog(@"User data: %@", snapshot.data);
+//            
+//            self.userType = snapshot.data[@"userType"];
+//            
+//            // TODO: hide add button
+//            
+//            
+//            // remove all object every time to reload
+//            [self.data removeAllObjects];
+//            
+//            // if user type is User, show only wish item request for their own
+//            // if user type is Contributor, show all wish item requests
+//            if ([[self userType] isEqualToString:@"User"]){
+//                // Get wish item requests select by uid
+//                [self getWishItemByUid:[[self firebaseUser] uid]];
+//            } else {
+//                // Get all wish item requests
+//                [self getAllWishItem];
+//            }
+//            
+//            
+//        } else {
+//            NSLog(@"User does not exist");
+//            [self displayAlertWith:@"Alert" andMessage:error.localizedDescription];
+//            
+//            [self signoutUser];
+//            
+//            // go back to root in tabbar controller
+//            [[self tabBarController] setSelectedIndex:0];
+//        }
+//    }];
+    
+
+}
+
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    firebaseUser = [[FIRAuth auth] currentUser];
+    if (!firebaseUser) {
+        //user not login, redirect to login in scene
         [self displayLoginScreen];
         return;
     }
@@ -45,6 +98,21 @@
             
             // TODO: hide add button
             
+            
+            // remove all object every time to reload
+            [self.data removeAllObjects];
+            
+            // if user type is User, show only wish item request for their own
+            // if user type is Contributor, show all wish item requests
+            if ([[self userType] isEqualToString:@"User"]){
+                // Get wish item requests select by uid
+                [self getWishItemByUid:[[self firebaseUser] uid]];
+            } else {
+                // Get all wish item requests
+                [self getAllWishItem];
+            }
+            
+            
         } else {
             NSLog(@"User does not exist");
             [self displayAlertWith:@"Alert" andMessage:error.localizedDescription];
@@ -56,77 +124,6 @@
         }
     }];
     
-    
-    
-    // get request wish item
-    // if userType is User, get only wish item for that user
-    // if userType is Contributor, get all wish item from every user
-    
-    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
-    
-    if ([self.userType isEqualToString:@"User"])
-    {
-        [[self.db collectionWithPath:str]
-         getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
-             if (error != nil) {
-                 NSLog(@"Error getting documents: %@", error);
-                 
-             } else {
-                 for (FIRDocumentSnapshot *document in snapshot.documents) {
-                     // store data uid, wishItemid, title, detail
-                     NSArray *item = [[NSArray alloc] initWithObjects:[self.firebaseUser uid],document.documentID, document[@"title"],document[@"detail"], nil];
-                     
-                     [self.data addObject:item];
-                     
-                 }
-                 [self.tableView reloadData];
-             }
-         }];
-    } else{
-        // get all user
-        
-        // loop user to get wish item
-        // add with item to data
-    }
-    
-    
-    
-    
-
-}
-
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    firebaseUser = [[FIRAuth auth] currentUser];
-    if (!firebaseUser) {
-        //user not login, redirect to login in scene
-        [self displayLoginScreen];
-    }
-    
-    // remove all object every time to reload
-    [self.data removeAllObjects];
-    
-    NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
-    
-    [[self.db collectionWithPath:str]
-     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
-         if (error != nil) {
-             NSLog(@"Error getting documents: %@", error);
-            
-         } else {
-             for (FIRDocumentSnapshot *document in snapshot.documents) {
-                 NSLog(@"%@ => %@", document.documentID, document.data);
-                 
-                 NSArray *item = [[NSArray alloc] initWithObjects:[self.firebaseUser uid],document.documentID, document[@"title"],document[@"detail"], nil];
-                 
-                 [self.data addObject:item];
-                 
-             }
-            [self.tableView reloadData];
-         }
-     }];
     
    
 }
@@ -162,22 +159,11 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // delete document in database
-
-        NSString *str = [NSString stringWithFormat:@"users/%@/wishItems",[firebaseUser uid]];
- 
-        [[[self.db collectionWithPath:str] documentWithPath:[[data objectAtIndex:indexPath.row] objectAtIndex:0]]
-         deleteDocumentWithCompletion:^(NSError * _Nullable error) {
-             if (error != nil) {
-                 NSLog(@"Error removing document: %@", error);
-             } else {
-                 NSLog(@"WishItem successfully removed!");
-                 
-                 // delete row in table view
-                 [self.data removeObjectAtIndex:indexPath.row];
-                 [tableView reloadData];
-             }
-         }];
+        [self deleteWishItemById:[[data objectAtIndex:indexPath.row] objectAtIndex:0]];
         
+        // delete row in table view
+        [self.data removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
         
     }
 }
@@ -217,7 +203,7 @@
         WishItemDetailViewController *vc = [segue destinationViewController];
         
         //pass data to wish item request screen
-        vc.data = wishItems;
+        vc.wishItemData = wishItems;
         vc.firebaseUser = self.firebaseUser;
         vc.userType = self.userType;
         
@@ -248,4 +234,54 @@
     }
 }
 
+// get wish item by uid
+- (void)getWishItemByUid:(NSString *)uid{
+    [[[self.db collectionWithPath:@"wishItemRequests"] queryWhereField:@"uid" isEqualTo:uid]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 //store data uid, wishItemid, title, detail
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"uid"], document[@"title"],document[@"detail"], nil];
+                 
+                 [self.data addObject:item];
+             }
+             [self.tableView reloadData];
+         }
+     }];
+}
+
+// get all wish item requests
+- (void)getAllWishItem{
+    [[self.db collectionWithPath:@"wishItemRequests"]
+     getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+         if (error != nil) {
+             NSLog(@"Error getting documents: %@", error);
+         } else {
+             for (FIRDocumentSnapshot *document in snapshot.documents) {
+                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 //store data uid, wishItemid, title, detail
+                 NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"uid"], document[@"title"],document[@"detail"], nil];
+                 
+                 [self.data addObject:item];
+             }
+             [self.tableView reloadData];
+         }
+     }];
+}
+
+// delete wish item by id
+- (void)deleteWishItemById:(NSString *)id{
+    [[[self.db collectionWithPath:@"wishItemRequests"] documentWithPath:id]
+     deleteDocumentWithCompletion:^(NSError * _Nullable error) {
+         if (error != nil) {
+             NSLog(@"Error removing document: %@", error);
+         } else {
+             NSLog(@"WishItem successfully removed!");
+
+         }
+     }];
+}
 @end

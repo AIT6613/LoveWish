@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
 - (void)signoutUser;
+- (void)getWishItemByUid:(NSString *)uid;
+- (void)getAllWishItem;
 
 @end
 

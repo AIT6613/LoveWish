@@ -202,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7F2-Gn-K5j">
-                                <rect key="frame" x="16" y="132" width="135" height="36"/>
+                                <rect key="frame" x="16" y="132" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -247,7 +247,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="lblCreateNewOffer:" destination="cfL-KY-FW1" eventType="touchUpInside" id="ixi-He-Dcb"/>
+                                    <action selector="btnCreateNewOffer:" destination="cfL-KY-FW1" eventType="touchUpInside" id="yrj-Gd-Z3Y"/>
                                     <segue destination="MKi-Zg-H4y" kind="show" identifier="toOfferDetail" id="D9F-bU-AZX"/>
                                 </connections>
                             </button>
@@ -255,7 +255,7 @@
                         <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Evb-BP-hfw" firstAttribute="top" secondItem="3Wj-yM-XKW" secondAttribute="bottom" constant="16" id="3qh-ci-oht"/>
-                            <constraint firstItem="5JR-Lq-NRT" firstAttribute="trailing" secondItem="7F2-Gn-K5j" secondAttribute="trailing" constant="224" id="90q-Gu-T0h"/>
+                            <constraint firstItem="5JR-Lq-NRT" firstAttribute="trailing" secondItem="7F2-Gn-K5j" secondAttribute="trailing" constant="16" id="90q-Gu-T0h"/>
                             <constraint firstItem="8mn-vu-rYn" firstAttribute="leading" secondItem="5JR-Lq-NRT" secondAttribute="leading" constant="16" id="D7j-y9-YlU"/>
                             <constraint firstItem="3Wj-yM-XKW" firstAttribute="top" secondItem="85A-30-XBI" secondAttribute="bottom" constant="16" id="JWV-2w-1lQ"/>
                             <constraint firstItem="8mn-vu-rYn" firstAttribute="top" secondItem="5JR-Lq-NRT" secondAttribute="top" constant="16" id="JlR-AR-t4g"/>
@@ -436,6 +436,8 @@
                         <viewLayoutGuide key="safeArea" id="Pio-rh-Q4q"/>
                     </view>
                     <connections>
+                        <outlet property="btnAddImage" destination="HdM-WU-fHp" id="YEl-Lc-ZsB"/>
+                        <outlet property="btnSave" destination="8y8-NS-2yt" id="1aY-ps-5fr"/>
                         <outlet property="imageTableView" destination="Xht-rO-S1C" id="mNa-ic-1y0"/>
                         <outlet property="lblItemName" destination="kZp-ys-k1T" id="Wj2-lF-2ZQ"/>
                         <outlet property="lblTitle" destination="oUe-Hn-Aj4" id="Yek-Nf-Hkf"/>

@@ -20,8 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *wishItemData;
 @property NSMutableArray *imageData;
 @property NSMutableArray *imageItem;
-
-@property int isNew;
+@property NSString *isCreateNewOffer;
 
 @property FIRFirestore *db;
 @property FIRUser *firebaseUser;
@@ -31,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *textViewDescription;
 @property (weak, nonatomic) IBOutlet UITableView *imageTableView;
 @property (weak, nonatomic) IBOutlet UITextField *txtPrice;
+@property (weak, nonatomic) IBOutlet UIButton *btnSave;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddImage;
 
 
 
@@ -39,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
-
+- (void)getAllImageByOfferId:(NSString *)offerId;
+- (void)deleteWishItemById:(NSString *)id;
 
 - (void)saveImage: (NSString *) offerId;
 

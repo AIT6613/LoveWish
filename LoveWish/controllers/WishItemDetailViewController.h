@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WishItemDetailViewController : ViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property NSMutableArray *data;
+@property NSMutableArray *wishItemData;
 @property NSMutableArray *offerData;
 @property NSMutableArray *offerItem;
-@property NSNumber *isNew;
 @property FIRUser *firebaseUser;
 @property NSString *userType;
+@property NSString *isCreateNewOffer;
 
 @property FIRFirestore *db;
 
@@ -30,8 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *offerTableView;
 
 
-- (IBAction)lblCreateNewOffer:(id)sender;
+- (IBAction)btnCreateNewOffer:(id)sender;
 - (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
+- (void)getOffersByWishItemId:(NSString *)wishItemId;
 @end
 
 NS_ASSUME_NONNULL_END
