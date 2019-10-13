@@ -9,7 +9,7 @@ target 'LoveWish' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-
+  pod 'Firebase/Storage'
   
   target 'LoveWishTests' do
     inherit! :search_paths
