@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *txtContactNumber;
 @property (weak, nonatomic) IBOutlet UITextView *txtAddress;
 
-
+- (IBAction)btnChangePasswordClick:(id)sender;
 - (IBAction)btnSave:(id)sender;
 - (IBAction)btnLogout:(id)sender;
 - (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;

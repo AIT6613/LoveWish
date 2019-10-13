@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *imageData;
 @property NSMutableArray *imageItem;
 @property NSString *isCreateNewOffer;
+@property NSString *tmpDownloadURL;
 
 @property FIRFirestore *db;
 @property FIRUser *firebaseUser;
@@ -39,11 +40,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)btnAddImageClick:(id)sender;
 
 - (void)displayAlertWith:(NSString *)title andMessage:(NSString *)message;
-- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
 - (void)getAllImageByOfferId:(NSString *)offerId;
 - (void)deleteWishItemById:(NSString *)id;
 
 - (void)saveImage: (NSString *) offerId;
+- (void)uploadImage:(UIImage *)image;
 
 @end
 

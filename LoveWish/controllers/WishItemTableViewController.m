@@ -92,8 +92,6 @@
         
         if (snapshot.exists) {
             // Document data may be nil if the document exists but has no keys or values.
-            NSLog(@"User data: %@", snapshot.data);
-            
             self.userType = snapshot.data[@"userType"];
             
             // TODO: hide add button
@@ -114,7 +112,6 @@
             
             
         } else {
-            NSLog(@"User does not exist");
             [self displayAlertWith:@"Alert" andMessage:error.localizedDescription];
             
             [self signoutUser];
@@ -242,7 +239,7 @@
              NSLog(@"Error getting documents: %@", error);
          } else {
              for (FIRDocumentSnapshot *document in snapshot.documents) {
-                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 //NSLog(@"%@ => %@", document.documentID, document.data);
                  //store data uid, wishItemid, title, detail
                  NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"uid"], document[@"title"],document[@"detail"], nil];
                  
@@ -261,7 +258,7 @@
              NSLog(@"Error getting documents: %@", error);
          } else {
              for (FIRDocumentSnapshot *document in snapshot.documents) {
-                 NSLog(@"%@ => %@", document.documentID, document.data);
+                 //NSLog(@"%@ => %@", document.documentID, document.data);
                  //store data uid, wishItemid, title, detail
                  NSArray *item = [[NSArray alloc] initWithObjects:document.documentID,document[@"uid"], document[@"title"],document[@"detail"], nil];
                  

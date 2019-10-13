@@ -22,6 +22,10 @@
     // get user from firestore
     firebaseUser = [[FIRAuth auth] currentUser];
     
+    // clear password
+    [self.txtOldPassword setText:@""];
+    [self.txtNewPassword setText:@""];
+    
     // get user detail from database
     FIRDocumentReference *docRef =
     [[self.db collectionWithPath:@"users"] documentWithPath:[firebaseUser uid]];
@@ -56,18 +60,21 @@
 }
 */
 
-- (IBAction)btnSave:(id)sender {
-    // check if both password have text
-    if ([[self txtOldPassword] hasText] || [[self txtNewPassword] hasText]){
+- (IBAction)btnChangePasswordClick:(id)sender {
         // check need to provide both password
-        if (![[self txtOldPassword] hasText] || ![[self txtNewPassword] hasText]){
+        if (![[self txtOldPassword] hasText]){
             // ask user cannot user same password
-            [self displayAlertWith:@"Alert" andMessage:@"Please provide all both old and new password."];
+            [self displayAlertWith:@"Alert" andMessage:@"Please provide current password."];
             
             return;
         }
-        
-        
+        if (![[self txtNewPassword] hasText]){
+            // ask user cannot user same password
+            [self displayAlertWith:@"Alert" andMessage:@"Please provide new password."];
+            
+            return;
+        }
+    
         // check if both are the same password
         if ([[[self txtOldPassword] text] isEqualToString:[[self txtNewPassword] text]]){
             // ask user cannot user same password
@@ -75,7 +82,7 @@
             
             return;
         }
-    
+        
         // reautheticate user
         FIRAuthCredential *credentials = [FIREmailAuthProvider credentialWithEmail:[firebaseUser email] password:txtOldPassword.text];
         
@@ -90,20 +97,25 @@
             [self.firebaseUser updatePassword:self.txtNewPassword.text completion:^(NSError *_Nullable error) {
                 // check error
                 if(error){
-                    // ask user to input old password
                     [self displayAlertWith:@"Alert" andMessage:[error localizedDescription]];
                     return;
+                } else {
+                    [self displayAlertWith:@"Alert" andMessage:@"Change password succesful."];
+                    
+                    // clear password
+                    [self.txtOldPassword setText:@""];
+                    [self.txtNewPassword setText:@""];
                 }
                 
-                // clear password
-                [self.txtOldPassword setText:@""];
-                [self.txtNewPassword setText:@""];
-            
+                
+                
             }];
             
         }];
-    }
     
+}
+
+- (IBAction)btnSave:(id)sender {
     // update user detail
     [[[self.db collectionWithPath:@"users"] documentWithPath:[self.firebaseUser uid]]
      updateData:@{

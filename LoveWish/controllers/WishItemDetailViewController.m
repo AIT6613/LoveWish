@@ -80,14 +80,11 @@
     [self.offerTableView registerNib:[UINib nibWithNibName:@"OfferCell"
                                                bundle:nil]
          forCellReuseIdentifier:@"OfferCell"];
-    NSLog(@"==============here 3==========");
+    
     OfferCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OfferCell" forIndexPath:indexPath];
-    NSLog(@"==============here 2==========");
     // get offer then display in tableview
-    NSLog(@"%@",[self offerData]);
     offerItem = [self.offerData objectAtIndex:indexPath.row];
     
-    NSLog(@"==============here 1==========");
     [[cell lblDescription] setText:[offerItem objectAtIndex:3]];
     [[cell lblPrice] setText:[offerItem objectAtIndex:4]];
     

@@ -23,8 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property FIRUser *firebaseUser;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtTitle;
-@property (weak, nonatomic) IBOutlet UITextField *txtDetail;
 @property (weak, nonatomic) IBOutlet UITableView *imageTableView;
+@property (weak, nonatomic) IBOutlet UITextView *txtDetail;
+
 
 - (IBAction)btnAddImage:(id)sender;
 - (IBAction)btnSave:(id)sender;
