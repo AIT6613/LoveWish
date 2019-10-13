@@ -30,7 +30,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6T-vl-kMc">
                                 <rect key="frame" x="16" y="34" width="343" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="Pig-ac-XD6"/>
+                                    <constraint firstAttribute="height" constant="51" id="32I-uC-aMj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -598,12 +598,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-8X-5qO">
-                                <rect key="frame" x="75" y="322" width="104" height="40"/>
+                                <rect key="frame" x="75" y="322" width="142" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="0q7-AB-oGp"/>
                                     <constraint firstAttribute="height" constant="40" id="fjL-qy-i58"/>
-                                    <constraint firstAttribute="width" constant="104" id="rON-w9-ego"/>
+                                    <constraint firstAttribute="width" constant="142" id="ksU-LX-mAx"/>
                                 </constraints>
                                 <state key="normal" title="Add Image">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -619,6 +618,7 @@
                             <constraint firstItem="Z2I-dD-VQn" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="47h-pp-09g"/>
                             <constraint firstItem="Z2I-dD-VQn" firstAttribute="top" secondItem="GTE-A8-peI" secondAttribute="top" constant="16" id="4tk-iR-m5z"/>
                             <constraint firstItem="rDe-ow-ajJ" firstAttribute="top" secondItem="QoN-XX-tgj" secondAttribute="bottom" constant="9" id="7AY-p9-hEB"/>
+                            <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="rDe-ow-ajJ" secondAttribute="trailing" constant="16" id="9OK-lx-kU2"/>
                             <constraint firstItem="wYE-8X-5qO" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="75" id="9yZ-o1-8ps"/>
                             <constraint firstItem="GTE-A8-peI" firstAttribute="bottom" secondItem="rDe-ow-ajJ" secondAttribute="bottom" constant="15" id="Auo-me-p27"/>
                             <constraint firstItem="KbR-jR-8FV" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="GEA-vL-BH8"/>
@@ -631,12 +631,13 @@
                             <constraint firstItem="CdJ-Of-CTD" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="Tn3-3X-a7k"/>
                             <constraint firstItem="YqO-f1-0lH" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="UmP-uL-Mcz"/>
                             <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="Z2I-dD-VQn" secondAttribute="trailing" constant="16" id="XZU-RA-HQ0"/>
+                            <constraint firstItem="rDe-ow-ajJ" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="Xe3-tT-no1"/>
                             <constraint firstItem="Mwp-lO-up9" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="cGw-QC-IJ6"/>
                             <constraint firstItem="Mwp-lO-up9" firstAttribute="top" secondItem="CdJ-Of-CTD" secondAttribute="bottom" constant="8" id="d2z-cx-UB4"/>
                             <constraint firstItem="w5x-hI-2gb" firstAttribute="top" secondItem="Z2I-dD-VQn" secondAttribute="bottom" constant="8" id="eN3-G9-Coo"/>
                             <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="YqO-f1-0lH" secondAttribute="trailing" constant="16" id="eob-nL-41a"/>
                             <constraint firstItem="wYE-8X-5qO" firstAttribute="top" secondItem="Mwp-lO-up9" secondAttribute="bottom" constant="8" id="flV-Ts-LO6"/>
-                            <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="wYE-8X-5qO" secondAttribute="trailing" constant="196" id="hRo-Xx-p4d"/>
+                            <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="wYE-8X-5qO" secondAttribute="trailing" constant="158" id="hRo-Xx-p4d"/>
                             <constraint firstItem="QoN-XX-tgj" firstAttribute="leading" secondItem="GTE-A8-peI" secondAttribute="leading" constant="16" id="iS0-nN-WDI"/>
                             <constraint firstItem="rDe-ow-ajJ" firstAttribute="centerX" secondItem="GTE-A8-peI" secondAttribute="centerX" id="leG-Fg-O0G"/>
                             <constraint firstItem="GTE-A8-peI" firstAttribute="trailing" secondItem="QoN-XX-tgj" secondAttribute="trailing" constant="16" id="nEx-9p-PYL"/>

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *txtLastName;
 @property (weak, nonatomic) IBOutlet UITextField *txtContactNumber;
-@property (weak, nonatomic) IBOutlet UITextField *txtAddress;
+@property (weak, nonatomic) IBOutlet UITextView *txtAddress;
 @property (weak, nonatomic) IBOutlet UISwitch *swbContributor;
 @property NSString *userType;
 

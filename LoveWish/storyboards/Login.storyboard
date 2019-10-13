@@ -266,6 +266,7 @@
                     </view>
                     <connections>
                         <outlet property="swbContributor" destination="jnM-Wf-7Jx" id="u8Q-77-DOW"/>
+                        <outlet property="txtAddress" destination="Jde-NS-Bjb" id="jp2-Ve-cly"/>
                         <outlet property="txtContactNumber" destination="jPL-rI-Jps" id="d1i-jr-kbn"/>
                         <outlet property="txtEmailAddress" destination="H1h-wl-bPY" id="zHH-TF-2gY"/>
                         <outlet property="txtFirstName" destination="l7u-AU-WXb" id="ws6-2U-q6p"/>

@@ -72,11 +72,19 @@
                                     return;
                                 } else {
                                     NSLog(@"Sign up successful.");
-                                    [self displayAlertWith:@"SignUp" andMessage:@"Congratulation. You already regitered to our system."];
+                                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"SignUp" message:@"You already sign up in our system." preferredStyle:UIAlertControllerStyleAlert];
+                                    
+                                    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                        
+                                        // dissmiss both view controller
+                                        [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+                                    }];
+                                    
+                                    [alert addAction:ok];
+                                    [self presentViewController:alert animated:YES completion:nil];
                                 }
                                 
-                                // dissmiss both view controller
-                                [[[self presentingViewController] presentingViewController] dismissViewControllerAnimated:YES completion:nil];
+                                
                             }];
             } else {
                 NSLog(@"user: %@", [[authResult user] uid]);
